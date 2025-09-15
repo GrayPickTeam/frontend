@@ -17,7 +17,7 @@ const DetailProcess = ({ history }: Pick<BillDetalProps, 'history'>) => {
 				<div className="px-5 py-4 rounded-[12px] typo-body2-normal text-label-normal font-regular text-center align-middle bg-bg-gray desktop:typo-body1-reading">
 					{currentStep?.[1].label || ' '}
 				</div>
-				<div className="flex flex-col desktop:flex-row w-full ">{processBar}</div>
+				<div className="flex flex-col max-desktop:px-3 desktop:justify-center desktop:flex-row w-full">{processBar}</div>
 			</div>
 		</section>
 	);
@@ -32,7 +32,8 @@ const ProcessItem = ({ status, currentStatus, info }: { status: BillStatus; curr
 
 	return (
 		<div className="relative flex flex-col items-baseline h-[68px] desktop:flex-row desktop:justify-center  desktop:flex-1 desktop:h-auto">
-			<div className="flex h-full  items-baseline gap-2 desktop:flex-col desktop:items-center">
+			<div className="flex h-full items-start gap-2 desktop:flex-col desktop:items-center">
+				{/* 이놈 */}
 				<div
 					className={`flex items-center justify-center z-10 w-5 h-5 rounded-full typo-caption1 font-bold text-white ${
 						stepStatus === '대기' ? 'bg-line-normal' : 'bg-primary-main-normal'
@@ -40,7 +41,8 @@ const ProcessItem = ({ status, currentStatus, info }: { status: BillStatus; curr
 				>
 					{stepStatus === '통과' ? <CheckIcon width={14} height={14} strokeWidth={3} /> : itemStep}
 				</div>
-				<div className="flex flex-col gap-3 desktop:w-full desktop:items-center">
+				{/* 이놈 */}
+				<div className="flex flex-col gap-3  desktop:w-full desktop:items-center">
 					<span
 						className={`flex items-center gap-0.5 typo-label1-normal font-bold ${stepStatus === '현재' ? 'text-label-normal' : 'text-label-alternative'}`}
 					>
