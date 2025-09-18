@@ -106,8 +106,6 @@
 	letter-spacing: 0.0311rem;
 }
 
-/* TODO: 대선 지나고 제거? */
-
 @utility typo-aggro-display {
 	font-weight: 700;
 	font-size: 36px;
