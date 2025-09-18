@@ -11,18 +11,20 @@ export interface KeywordType {
 	updatedAt: string;
 }
 
+export interface KeywordType {
+	id: number;
+	text: string;
+	priority: number;
+	display: boolean;
+	createdAt: string;
+	updatedAt: string;
+}
+
 export interface SearchKeywordResponse {
 	totalPages: number;
 	totalElements: number;
 	size: number;
-	content: {
-		id: number;
-		text: string;
-		priority: number;
-		display: boolean;
-		createdAt: string;
-		updatedAt: string;
-	}[];
+	content: KeywordType[];
 	number: number;
 	sort: {
 		empty: boolean;
@@ -45,15 +47,6 @@ export interface SearchKeywordResponse {
 	first: boolean;
 	last: boolean;
 	empty: boolean;
-}
-
-export interface AddKeywordResponse {
-	id: number;
-	text: string;
-	priority: number;
-	display: boolean;
-	createdAt: string;
-	updatedAt: string;
 }
 
 export const getSearchKeywords = async ({
@@ -88,9 +81,42 @@ export const getSearchKeywords = async ({
 };
 
 export const addSearchKeyword = async (text: string, display: boolean = true) => {
-	const response = await tokenFetcher<AddKeywordResponse>(`/api/search-keywords`, {
+	const response = await tokenFetcher<KeywordType>(`/api/search-keywords`, {
 		method: 'POST',
 		body: JSON.stringify({ text, display }),
+	});
+	return response.result;
+};
+
+export const deleteSearchKeyword = async (keyword: KeywordType) => {
+	try {
+		const body = {
+			text: keyword.text,
+			priority: keyword.priority,
+			displayYn: keyword.display,
+			delYn: true, // 삭제 표시
+		};
+
+		const response = await tokenFetcher<KeywordType>(`/api/search-keywords/${keyword.id}`, {
+			method: 'PUT',
+			body: JSON.stringify(body),
+		});
+
+		return response;
+	} catch (err) {
+		throw err;
+	}
+};
+
+export const updateSearchKeyword = async (kw: KeywordType) => {
+	const response = await tokenFetcher<KeywordType>(`/api/search-keywords/${kw.id}`, {
+		method: 'PUT',
+		body: JSON.stringify({
+			text: kw.text,
+			priority: kw.priority,
+			displayYn: kw.display,
+			delYn: false, // 수정일 때는 항상 false
+		}),
 	});
 	return response.result;
 };
