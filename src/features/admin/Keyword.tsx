@@ -23,8 +23,8 @@ const Keyword = () => {
 
 	const handleUpdateKeyword = async (kw: KeywordType) => {
 		try {
-			const updated = await updateSearchKeyword(kw); // 서버 갱신
-			setKeywords((prev) => prev.map((k) => (k.id === updated.id ? updated : k))); // 상태 갱신
+			const updated = await updateSearchKeyword(kw);
+			setKeywords((prev) => prev.map((k) => (k.id === updated.id ? updated : k)));
 		} catch (err) {
 			console.error('키워드 수정 실패', err);
 		}
@@ -73,7 +73,14 @@ const Keyword = () => {
 			</div>
 
 			{/* 키워드 목록 */}
-			<ul className="space-y-2">
+			<ul className="space-y-2 min-w-[800px]">
+				<div className="grid grid-cols-6 gap-2 items-center p-2 border-b typo-headline1 text-center">
+					<span className="col-span-2">키워드</span>
+					<span>수정일</span>
+					<span>중요도</span>
+					<span>표시여부</span>
+					<span></span>
+				</div>
 				{keywords.map((kw) => (
 					<KeywordItem key={kw.id} keyword={kw} onUpdate={handleUpdateKeyword} onDelete={handleDeleteKeyword} />
 				))}

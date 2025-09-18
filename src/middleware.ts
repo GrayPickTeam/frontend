@@ -16,9 +16,6 @@ export async function middleware(req: NextRequest) {
 	const hasToken = cookieStore.has(access);
 	const nickValue = cookieStore.get(nickname)?.value;
 
-	//TODO: UI작업 완료시 제거
-	console.log(cookieStore.get(access)?.value);
-
 	if (hasToken && nickValue === '' && !(pathname === '/onboarding')) {
 		const referer = req.headers.get('referer') || '';
 		const isFromModalLogin = referer.includes(MODAL_PATH.login);
