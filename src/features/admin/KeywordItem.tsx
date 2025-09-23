@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { KeywordType } from './api/keyword';
+import { SearchKeyword } from '../search/api/server';
 
 interface KeywordItemProps {
-	keyword: KeywordType;
-	onUpdate: (kw: KeywordType) => Promise<void>;
-	onDelete: (kw: KeywordType) => Promise<void>;
+	keyword: SearchKeyword;
+	onUpdate: (kw: SearchKeyword) => Promise<void>;
+	onDelete: (kw: SearchKeyword) => Promise<void>;
 }
 const KeywordItem: React.FC<KeywordItemProps> = ({ keyword, onUpdate, onDelete }) => {
 	const [isEditing, setIsEditing] = useState(false);

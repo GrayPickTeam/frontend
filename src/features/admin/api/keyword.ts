@@ -1,30 +1,13 @@
 'use server';
 
+import { SearchKeyword } from '@/features/search/api/server';
 import { tokenFetcher } from '@/shared/api/fetcher';
-
-export interface KeywordType {
-	id: number;
-	text: string;
-	priority: number;
-	display: boolean;
-	createdAt: string;
-	updatedAt: string;
-}
-
-export interface KeywordType {
-	id: number;
-	text: string;
-	priority: number;
-	display: boolean;
-	createdAt: string;
-	updatedAt: string;
-}
 
 export interface SearchKeywordResponse {
 	totalPages: number;
 	totalElements: number;
 	size: number;
-	content: KeywordType[];
+	content: SearchKeyword[];
 	number: number;
 	sort: {
 		empty: boolean;
@@ -80,14 +63,14 @@ export const getSearchKeywords = async ({
 };
 
 export const addSearchKeyword = async (text: string, display: boolean = true) => {
-	const response = await tokenFetcher<KeywordType>(`/api/search-keywords`, {
+	const response = await tokenFetcher<SearchKeyword>(`/api/search-keywords`, {
 		method: 'POST',
 		body: JSON.stringify({ text, display }),
 	});
 	return response.result;
 };
 
-export const deleteSearchKeyword = async (keyword: KeywordType) => {
+export const deleteSearchKeyword = async (keyword: SearchKeyword) => {
 	try {
 		const body = {
 			text: keyword.text,
@@ -96,7 +79,7 @@ export const deleteSearchKeyword = async (keyword: KeywordType) => {
 			delYn: true, // 삭제 표시
 		};
 
-		const response = await tokenFetcher<KeywordType>(`/api/search-keywords/${keyword.id}`, {
+		const response = await tokenFetcher<SearchKeyword>(`/api/search-keywords/${keyword.id}`, {
 			method: 'PUT',
 			body: JSON.stringify(body),
 		});
@@ -107,8 +90,8 @@ export const deleteSearchKeyword = async (keyword: KeywordType) => {
 	}
 };
 
-export const updateSearchKeyword = async (kw: KeywordType) => {
-	const response = await tokenFetcher<KeywordType>(`/api/search-keywords/${kw.id}`, {
+export const updateSearchKeyword = async (kw: SearchKeyword) => {
+	const response = await tokenFetcher<SearchKeyword>(`/api/search-keywords/${kw.id}`, {
 		method: 'PUT',
 		body: JSON.stringify({
 			text: kw.text,
