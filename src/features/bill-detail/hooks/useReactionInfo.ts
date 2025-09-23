@@ -16,11 +16,11 @@ export const useReactionInfo = ({
 	disappointedReactionCount,
 	userReactionType,
 }: ReactionInfoProps) => {
-	// 좋아요, 개선필요, 흥미진진, 아쉬워요
+	// 좋아요, 흥미진진, 개선필요,  아쉬워요
 	const [reactionCounts, setReactionCounts] = useState<[number, number, number, number]>([
 		likeReactionCount,
-		improvementReactionCount,
 		excitedReactionCount,
+		improvementReactionCount,
 		disappointedReactionCount,
 	]);
 	const [myReaction, setMyReaction] = useState<BillReaction | null>(userReactionType);

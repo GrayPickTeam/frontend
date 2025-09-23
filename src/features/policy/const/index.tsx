@@ -20,9 +20,9 @@ export const SERVICE_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			title: '목적',
 			content: (
 				<p className={PLAIN_TEXT_STYLE}>
-					이 약관은 그래, 이 픽(이하 "회사"라 한다)가 운영하는 인터넷 웹사이트인 그래, 이 픽(도메인 주소)(이하 "사이트"라 한다)에서 제공하는 인터넷
-					관련 서비스(이하 "서비스"라 한다)를 이용함에 있어 서비스와 서비스 이용자의 권리 의무 및 책임사항을 규정함을 목적으로 합니다. ※「PC통신, 무선
-					등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.
+					이 약관은 그레이픽(이하 "회사"라 한다)가 운영하는 인터넷 웹사이트인 그레이픽(도메인 주소)(이하 "사이트"라 한다)에서 제공하는 인터넷 관련
+					서비스(이하 "서비스"라 한다)를 이용함에 있어 서비스와 서비스 이용자의 권리 의무 및 책임사항을 규정함을 목적으로 합니다. ※「PC통신, 무선 등을
+					이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.
 				</p>
 			),
 		},
@@ -30,10 +30,10 @@ export const SERVICE_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			title: '정의',
 			content: (
 				<ol className={`${PLAIN_TEXT_STYLE} ${DECIMAL_LI_STYLE}`}>
-					<li>"회사"라 함은 그래, 이 픽을 말합니다.</li>
+					<li>"회사"라 함은 그레이픽을 말합니다.</li>
 					<li>
 						"사이트"라 함은 사업자가 재화 또는 용역(이하 "재화 등"이라 함)을 "회원" 에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 운영하고
-						있는 인터넷 웹사이트 **그래, 이 픽(도메인 주소)**을 말합니다.
+						있는 인터넷 웹사이트 https://graypick.co.kr을 말합니다.
 					</li>
 					<li>"이용자"라 함은 "사이트"에 접속하여 이 약관에 따라 "사이트"가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.</li>
 					<li>"회원"이라 함은 "사이트"에 회원가입을 한 자로서, 계속적으로 "사이트"가 제공하는 "서비스"를 이용할 수 있는 자를 말합니다.</li>
@@ -574,8 +574,8 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 				<div>
 					<p>
 						고객은 사이트 회원 가입시 회원 약관, 개인정보 수집 및 이용 내용에 대해 「동의함」 버튼을 클릭할 수 있는 절차를 마련하여, 「동의함」 버튼을
-						클릭하면 개인정보 수집 및 이용에 대해 동의한 것으로 봅니다. 그래, 이 픽은 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적
-						이외의 용도로는 이용하지 않습니다.
+						클릭하면 개인정보 수집 및 이용에 대해 동의한 것으로 봅니다. 그레이픽은 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의
+						용도로는 이용하지 않습니다.
 					</p>
 					<ul className={`${PLAIN_TEXT_STYLE} ${DECIMAL_LI_STYLE}`}>
 						<li>회원 가입 의사의 확인, 이용자 식별, 회원탈퇴 의사의 확인 등 회원관리를 위하여 개인정보를 이용합니다.</li>
@@ -585,7 +585,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 							이용합니다.
 						</li>
 						<li>
-							법령 및 그래, 이 픽 이용약관을 위반하는 회원에 대한 이용 제한 조치, 부정 이용 행위를 포함하여 서비스의 원활한 운영에 지장을 주는 행위에
+							법령 및 그레이픽 이용약관을 위반하는 회원에 대한 이용 제한 조치, 부정 이용 행위를 포함하여 서비스의 원활한 운영에 지장을 주는 행위에
 							대한 방지 및 제재, 계정도용 및 부정거래 방지, 약관 개정 등의 고지사항 전달, 분쟁조정을 위한 기록 보존, 민원처리 등 이용자 보호 및 서비스
 							운영을 위하여 개인정보를 이용합니다.
 						</li>
@@ -639,7 +639,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			title: '처리하는 개인정보의 항목 작성',
 			content: (
 				<>
-					<p className={PLAIN_TEXT_STYLE}>그래, 이 픽은 다음의 개인정보 항목을 처리하고 있습니다.</p>
+					<p className={PLAIN_TEXT_STYLE}>그레이픽은 다음의 개인정보 항목을 처리하고 있습니다.</p>
 					<div className="max-w-[700px] w-full overflow-x-auto custom-scrollbar">
 						<table className="w-[700px] border-collapse border-line-normal typo-body1-normal font-regular text-label-normal">
 							<thead>
@@ -694,7 +694,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 					회원은 개인정보주체로써 다음과 같은 권리를 행사할 수 있습니다.
 					<br />
 					<ul className={DECIMAL_LI_STYLE}>
-						<li>정보주체는 그래, 이 픽에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.</li>
+						<li>정보주체는 그레이픽에 대해 언제든지 다음 각 호의 개인정보 보호 관련 권리를 행사할 수 있습니다.</li>
 						<ol className={ALPHA_LI_STYLE}>
 							<li>개인정보 열람요구</li>
 							<li>오류 등이 있을 경우 정정 요구</li>
@@ -713,7 +713,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			title: '개인정보 자동 수집 장치의 설치•운영 및 거부에 관한 사항',
 			content: (
 				<ul className={`${PLAIN_TEXT_STYLE} ${DECIMAL_LI_STYLE}`}>
-					<li>그래, 이 픽은 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.</li>
+					<li>그레이픽은 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.</li>
 					<li>
 						쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에게 보내는 소량의 정보이며 이용자들의 PC 컴퓨터내의
 						하드디스크에 저장되기도 합니다.
@@ -741,7 +741,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			content: (
 				<ul className={`${PLAIN_TEXT_STYLE} ${DECIMAL_LI_STYLE}`}>
 					<li>
-						그래, 이 픽은 원활한 서비스 제공을 위하여 아래와 같이 개인정보 처리 업무를 외부 전문업체에 위탁하고 있습니다.
+						그레이픽은 원활한 서비스 제공을 위하여 아래와 같이 개인정보 처리 업무를 외부 전문업체에 위탁하고 있습니다.
 						<ol className={ALPHA_LI_STYLE}>
 							<li>
 								수탁 업체 별 위탁 내용
@@ -766,7 +766,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 			title: '개인정보의 안전성 확보 조치',
 			content: (
 				<div className={PLAIN_TEXT_STYLE}>
-					그래, 이 픽은 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 조치를 하고 있습니다.
+					그레이픽은 개인정보보호법 제29조에 따라 다음과 같이 안전성 확보에 필요한 기술적/관리적 조치를 하고 있습니다.
 					<ul className={`${DECIMAL_LI_STYLE}`}>
 						<li>
 							기술적 대책

@@ -58,8 +58,8 @@ const CategoryFilter = () => {
 		// 스크롤바 유무에 따라 페딩 영향 받음
 		<Dropdown label={label} about="키워드" className="pr-1">
 			{(close) => (
-				<div className="flex flex-col relative w-full h-[430px] desktop:h-[400px] desktop:w-[320px] desktop:py-3 justify-center desktop:items-center">
-					<div className="flex flex-wrap gap-3 overflow-y-auto h-full w-full content-baseline items-baseline pb-12 custom-scrollbar">
+				<div className="flex flex-col relative w-full h-[430px] desktop:h-[400px] desktop:w-[320px] desktop:py-3 justify-center desktop:justify-start desktop:items-center">
+					<div className="flex flex-wrap gap-3 overflow-y-auto h-full desktop:h-[calc(100%-58px)] w-full content-baseline items-baseline pb-12 desktop:pb-4  custom-scrollbar">
 						{KEYWORD_LIST.map((keyword) => (
 							<KeywordBtn key={keyword} keyword={keyword} onClick={() => toggleKeyword(keyword)} isSelected={selected.includes(keyword)} />
 						))}

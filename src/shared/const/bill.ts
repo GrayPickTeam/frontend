@@ -1,4 +1,4 @@
-export type BillStatus = '발의' | '위원회 회부' | '본회의 심의' | '공포';
+export type BillStatus = '발의' | '위원회 회부' | '본회의 심의' | '정부 이송' | '공포';
 
 export const BILL_STATUS_STEP: Record<BillStatus, { step: number; label: string }> = {
 	발의: {
@@ -14,8 +14,12 @@ export const BILL_STATUS_STEP: Record<BillStatus, { step: number; label: string 
 		step: 3,
 		label: '국회의원이 모여 법안에 대한 심의를 하고 있어요.',
 	},
-	공포: {
+	'정부 이송': {
 		step: 4,
+		label: '국회를 통과한 법안을 정부로 보냈어요.',
+	},
+	공포: {
+		step: 5,
 		label: '공포되어 시행을 앞두고 있어요',
 	},
 };

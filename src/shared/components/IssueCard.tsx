@@ -84,6 +84,18 @@ const IssueCard = ({
 		return name && name in COMMITTEES ? name : '기타';
 	};
 
+	const modifyRepresentativeName = (name: string) => {
+		if (name.length < 1) {
+			return '미등록';
+		}
+
+		const idx = name.indexOf('의원');
+		if (idx !== -1 && name.length > 4) {
+			return name.slice(0, idx); // "의원" 이라는 글자 있고 길이가 길면(4보다 큼) 앞까지만 반환
+		}
+		return name;
+	};
+
 	return (
 		<article className="flex flex-col rounded-[12px] px-5 pt-5 pb-3 gap-2.5 bg-bg-white desktop:gap-3 desktop:pl-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ">
 			<Link href={CLIENT_NAVI_PATH.billDetail.getPath(billId)}>
@@ -93,7 +105,7 @@ const IssueCard = ({
 							{aiTitle}
 						</h3>
 						<div className="flex gap-2.5 typo-label2 desktop:typo-label1-normal text-label-alternative font-regular">
-							<div>{representativeName}</div>
+							<div>{modifyRepresentativeName(representativeName)}</div>
 							<div>{proposeDate}</div>
 						</div>
 					</div>

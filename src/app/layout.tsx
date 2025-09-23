@@ -9,18 +9,18 @@ import { ReactScan } from '@/shared/script/ReactScan';
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | 그래, 이 픽',
-		default: '그래, 이 픽',
+		template: '%s | 그레이픽',
+		default: '그레이픽',
 	},
 	description: '3초면 끝. 당신의 일상에 딱, 바로 이 픽!',
 	openGraph: {
-		title: '그래, 이 픽',
+		title: '그레이픽',
 		description: '3초면 끝. 당신의 일상에 딱, 바로 이 픽!',
 		images: 'https://cdn.jsdelivr.net/gh/ZeroTeamTwo/frontend/public/images/og-image.png',
 		locale: 'ko_KR',
 		url: 'https://graypick.co.kr/',
 		type: 'website',
-		siteName: '그래, 이 픽',
+		siteName: '그레이픽',
 	},
 };
 

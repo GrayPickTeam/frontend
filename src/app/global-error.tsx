@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import { SolidBtn } from '@/shared/components/SolidBtn';
 import Footer from '@/features/layout/Footer';
+import './globals.css';
 
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
 	useEffect(() => {

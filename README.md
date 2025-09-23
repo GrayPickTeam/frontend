@@ -1,4 +1,4 @@
-# [그래, 이 픽(gray pick)](https://graypick.co.kr/)
+# [그레이픽(gray pick)](https://graypick.co.kr/)
 
 법안 정보를 생활밀착형으로 쉽고 흥미롭게 추천해주는 AI 기반 큐레이션 서비스로, 복잡한 정치 정보를 일상과 연결하여 개인 맞춤형으로 제공하는 정치 참여 활성화 플랫폼
 
@@ -122,7 +122,7 @@ FSD를 간소화 시킨 폴더 구조 사용
 
 - main : 실 서비스 중인 브랜치. 베타서비스 이전까지는 develop 브랜치 역할을 대신함, main에 대한 pullrequest의 경우 merge: prefix와 라벨을 적용.
 - develop : 신규 개발 내용을 병합중이 branch.
-- tt-\* : 지라 이슈 번호에 따른 기능 단위의 브랜치. 작업이 완료시 develop에 병합
+- tt-\* : 지라 이슈 번호에 따른 기능 단위의 브랜치. 작업이 완료시 develop에 병합 -> 이후 관련 develop 이슈에 이슈 번호 추가
 - hotfix : 급하게 수정해야할 내용을 작업 -> main에 병합 , 단일 규모에 대한 hotfix는 tt에서 직접 작업후 병합
 
 ## 커밋 컨벤션
