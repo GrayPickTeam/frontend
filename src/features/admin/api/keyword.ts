@@ -73,7 +73,6 @@ export const getSearchKeywords = async ({
 
 		const response = await tokenFetcher<SearchKeywordResponse>(`/api/search-keywords?${params.toString()}`);
 
-		console.log(response.result.content);
 		return response.result;
 	} catch (err) {
 		throw err;
