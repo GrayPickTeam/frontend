@@ -1,30 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import { getDisplaySearchKeywords, SearchKeyword } from './api/server';
+import useSearchKeyword from './hooks/useSearchKeyword';
 
 const RecommendTerms = () => {
-	const [keywords, setKeywords] = useState<SearchKeyword[]>([]);
-	const [loading, setLoading] = useState(true);
+	//TODO: 에러처리?
+	const { isLoading, keywords } = useSearchKeyword();
 
-	useEffect(() => {
-		const fetchKeywords = async () => {
-			try {
-				const { result } = await getDisplaySearchKeywords();
-				setKeywords(result || []);
-			} catch (error) {
-				console.error('Failed to fetch keywords:', error);
-				setKeywords([]);
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		fetchKeywords();
-	}, []);
-
-	if (loading) {
+	if (isLoading) {
 		return (
 			<section className="flex flex-col w-full px-5 gap-5 items-baseline desktop:items-center">
 				<h2 className="typo-headline1 font-bold">추천 검색어</h2>
