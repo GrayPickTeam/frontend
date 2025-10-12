@@ -20,6 +20,7 @@ export interface MyReactions {
 }
 
 interface MyComments {
+	billId: number;
 	commentId: string;
 	content: string;
 	createdDate: string;
