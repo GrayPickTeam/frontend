@@ -16,6 +16,8 @@ export const CLIENT_NAVI_PATH = {
 
 export const ADMIN_NAVI_PATH = {
 	keywords: { name: '검색 키워드 관리', path: '/admin/keywords' },
+	user: { name: '회원 관리', path: '/admin/user' },
+	bill: { name: '법안 관리', path: '/admin/bill' },
 } as const;
 
 export const MODAL_PATH = {
