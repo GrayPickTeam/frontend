@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { addSearchKeyword, deleteSearchKeyword, getSearchKeywords, updateSearchKeyword, KeywordType } from './api/keyword';
+import { addSearchKeyword, deleteSearchKeyword, getSearchKeywords, updateSearchKeyword } from './api/keyword';
 import KeywordItem from './KeywordItem';
+import { SearchKeyword } from '../search/api/server';
 
 const Keyword = () => {
-	const [keywords, setKeywords] = useState<KeywordType[]>([]);
+	const [keywords, setKeywords] = useState<SearchKeyword[]>([]);
 	const [newKeyword, setNewKeyword] = useState('');
 
 	const handleAddKeyword = async () => {
@@ -21,7 +22,7 @@ const Keyword = () => {
 		}
 	};
 
-	const handleUpdateKeyword = async (kw: KeywordType) => {
+	const handleUpdateKeyword = async (kw: SearchKeyword) => {
 		try {
 			const updated = await updateSearchKeyword(kw);
 			setKeywords((prev) => prev.map((k) => (k.id === updated.id ? updated : k)));
@@ -30,7 +31,7 @@ const Keyword = () => {
 		}
 	};
 
-	const handleDeleteKeyword = async (kw: KeywordType) => {
+	const handleDeleteKeyword = async (kw: SearchKeyword) => {
 		const ok = window.confirm(`"${kw.text}" 키워드를 삭제하시겠습니까?`);
 		if (!ok) return;
 
