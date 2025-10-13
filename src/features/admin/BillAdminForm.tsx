@@ -1,9 +1,12 @@
 'use client';
 
+import BillEdit from './BillEdit';
 import useBillInfo from './hooks/useBillInfo';
+import useEditedBillList from './hooks/useEditedBillList';
 
 const BillAdminForm = () => {
-	const { billId, setBillId, searchBillInfo, isLoading, error, billDetail } = useBillInfo();
+	const { billId, setBillId, searchBillInfo, isLoading, error, billDetail, removeBillInfo } = useBillInfo();
+	const { editedBillList, addEditedBill } = useEditedBillList();
 
 	return (
 		<div className="flex flex-col gap-6 w-full max-w-lg mx-auto p-6">
@@ -22,12 +25,18 @@ const BillAdminForm = () => {
 				</button>
 			</div>
 
+			{editedBillList.length > 0 && (
+				<div className="text-center">
+					<p className="typo-headline1 font-medium text-gray-700 mb-1">수정 완료된 법안</p>
+					<p className="typo-body1-reading">{editedBillList.join(', ')}</p>
+				</div>
+			)}
 			{isLoading && <p className="typo-body1-reading">불러오는 중...</p>}
 			{error && <p className="typo-body1-reading">{error}</p>}
 
 			{billDetail && (
 				<div className="border border-bg-gray rounded-lg p-4 bg-gray-50 mt-4">
-					<h2 className="typo-caption2 mb-2">{billDetail.billAiSummary}</h2>
+					<BillEdit {...billDetail} removeBillInfo={removeBillInfo} addEditedBill={addEditedBill} />
 				</div>
 			)}
 		</div>

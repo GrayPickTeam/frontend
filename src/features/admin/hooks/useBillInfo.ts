@@ -27,7 +27,11 @@ const useBillInfo = () => {
 		}
 	};
 
-	return { billId, setBillId, billDetail, isLoading, error, searchBillInfo };
+	const removeBillInfo = () => {
+		setBillDetail(null);
+	};
+
+	return { billId, setBillId, billDetail, isLoading, error, searchBillInfo, removeBillInfo };
 };
 
 export default useBillInfo;
