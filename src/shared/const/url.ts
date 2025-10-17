@@ -12,6 +12,7 @@ export const CLIENT_NAVI_PATH = {
 	search: { name: '검색페이지', path: '/search' },
 	policyService: { name: '서비스 이용약관', path: '/policy/service' },
 	policyPrivacy: { name: '개인정보 처리방침', path: '/policy/privacy' },
+	withDrawal: { name: '회원탈퇴', path: '/mypage/withdrawal' },
 } as const;
 
 export const ADMIN_NAVI_PATH = {
