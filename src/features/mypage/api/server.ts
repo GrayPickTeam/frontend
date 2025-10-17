@@ -100,3 +100,22 @@ export async function uploadProfileImg(formData: FormData) {
 		}
 	}
 }
+
+export const withDrawalService = async (reason: string, otherReason: string): Promise<'success' | 'error'> => {
+	console.log(reason, otherReason, '리퀘스트값');
+	try {
+		await tokenFetcher<string>('/api/users/me', {
+			method: 'DELETE',
+			cache: 'no-store',
+			body: JSON.stringify({
+				reason,
+				otherReason,
+			}),
+		});
+
+		return 'success';
+	} catch (error) {
+		console.error('errer', error);
+		return 'error';
+	}
+};

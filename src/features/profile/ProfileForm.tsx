@@ -52,14 +52,22 @@ const ProfileForm = ({ initialNick, initailKeywords }: ProfileFormProps) => {
 		<form onSubmit={handleSubmit} className="flex flex-col gap-6 desktop:gap-12 w-full mx-auto">
 			<Nickname isValidate={isValidateNick} setIsValidate={setIsValidateNick} initialNick={initialNick} />
 			<Keywords keywords={keywords} setKeywords={setKeywords} />
-			<div className="w-full flex justify-end items-center gap-2">
+			<div className="flex w-full justify-between items-center">
 				<Link
-					href={CLIENT_NAVI_PATH.mypage.path}
-					className="flex items-center justify-center w-17 h-8 text-label-alternative typo-body1-normal font-bold text-center"
+					href={CLIENT_NAVI_PATH.withDrawal.path}
+					className="flex items-center justify-center w-17 h-8 text-[#FF5141] typo-body1-normal font-bold text-center"
 				>
-					취소
+					회원탈퇴
 				</Link>
-				<SolidBtn type="submit" disabled={!canSumbit} label="수정" size="small" className="w-17 typo-body2-normal" />
+				<div className="flex items-center gap-2">
+					<Link
+						href={CLIENT_NAVI_PATH.mypage.path}
+						className="flex items-center justify-center w-17 h-8 text-label-alternative typo-body1-normal font-bold text-center"
+					>
+						취소
+					</Link>
+					<SolidBtn type="submit" disabled={!canSumbit} label="수정" size="small" className="w-17 typo-body2-normal" />
+				</div>
 			</div>
 		</form>
 	);
