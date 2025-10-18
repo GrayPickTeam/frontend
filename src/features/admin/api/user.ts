@@ -40,7 +40,22 @@ export interface UserDetail {
 	updatedAt: string;
 }
 
-export interface UserReport {
+export interface UserReportReceived {
+	reportId: number;
+	reportReason: string;
+	reportStatus: 'PENDING' | 'APPROVED' | 'REJECTED';
+	reportedAt: string;
+	commentId: number;
+	commentContent: string;
+	reporterId: number;
+	reporterEmail: string;
+	reporterNickname: string;
+	billId: number;
+	billTitle: string;
+	billProposeDate: string;
+}
+
+export interface UserReportSent {
 	reportId: number;
 	reportReason: string;
 	reportStatus: 'PENDING' | 'APPROVED' | 'REJECTED';
@@ -54,6 +69,9 @@ export interface UserReport {
 	billTitle: string;
 	billProposeDate: string;
 }
+
+// Backward compatibility - this will be deprecated
+export type UserReport = UserReportReceived;
 
 export interface PageableResponse<T> {
 	content: T[];
@@ -158,19 +176,45 @@ export async function unblockUser(userId: number) {
 }
 
 /**
- * Get user report history
+ * Get user received reports (reports against the user)
  */
-export async function getUserReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
+export async function getUserReceivedReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
 	const params = new URLSearchParams({
 		page: page.toString(),
 		size: size.toString(),
 	});
 
-	const data = await tokenFetcher<SliceResponse<UserReport>>(`/api/admin/users/${userId}/reports?${params}`);
+	const data = await tokenFetcher<SliceResponse<UserReportReceived>>(`/api/admin/users/${userId}/reports/received?${params}`);
 
 	if (!data.isSuccess) {
 		throw new Error(data.responseMessage);
 	}
 
 	return data.result;
+}
+
+/**
+ * Get user sent reports (reports made by the user)
+ */
+export async function getUserSentReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
+	const params = new URLSearchParams({
+		page: page.toString(),
+		size: size.toString(),
+	});
+
+	const data = await tokenFetcher<SliceResponse<UserReportSent>>(`/api/admin/users/${userId}/reports/sent?${params}`);
+
+	if (!data.isSuccess) {
+		throw new Error(data.responseMessage);
+	}
+
+	return data.result;
+}
+
+/**
+ * @deprecated Use getUserReceivedReports instead
+ * Get user report history (backward compatibility)
+ */
+export async function getUserReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
+	return getUserReceivedReports({ userId, page, size });
 }
