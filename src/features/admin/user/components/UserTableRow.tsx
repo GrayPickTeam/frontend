@@ -59,7 +59,7 @@ export default function UserTableRow({ user }: UserTableRowProps) {
 					<div className="flex gap-2">
 						<SolidBtn size="small" primary={false} label="상세보기" onClick={handleViewDetails} />
 						{user.status === 'ACTIVE' ? (
-							<SolidBtn size="small" primary={true} label="차단" onClick={() => setShowBlockDialog(true)} className="bg-status-negative" />
+							<SolidBtn size="small" primary={true} label="차단" onClick={() => setShowBlockDialog(true)} className="!bg-status-destructive" />
 						) : user.status === 'BLOCKED' ? (
 							<SolidBtn size="small" primary={true} label="해제" onClick={() => setShowUnblockDialog(true)} />
 						) : null}

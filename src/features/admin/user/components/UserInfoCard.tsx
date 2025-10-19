@@ -101,7 +101,13 @@ export default function UserInfoCard({ user }: UserInfoCardProps) {
 						{/* Action Button */}
 						<div className="pt-4">
 							{user.status === 'ACTIVE' ? (
-								<SolidBtn primary={true} size="medium" label="사용자 차단" onClick={() => setShowBlockDialog(true)} className="bg-status-negative" />
+								<SolidBtn
+									primary={true}
+									size="medium"
+									label="사용자 차단"
+									onClick={() => setShowBlockDialog(true)}
+									className="!bg-status-destructive"
+								/>
 							) : user.status === 'BLOCKED' ? (
 								<SolidBtn primary={true} size="medium" label="차단 해제" onClick={() => setShowUnblockDialog(true)} />
 							) : null}

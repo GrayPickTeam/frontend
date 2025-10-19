@@ -31,7 +31,7 @@ export default function ConfirmDialog({
 
 	const modalContent = (
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/52" onClick={onClose}>
-			<div className="w-full max-w-md mx-auto bg-background-normal-normal rounded-lg p-6 m-4" onClick={(e) => e.stopPropagation()}>
+			<div className="w-full max-w-md mx-auto bg-white rounded-lg p-6 m-4" onClick={(e) => e.stopPropagation()}>
 				<h2 className="typo-heading1 text-label-strong mb-4">{title}</h2>
 
 				<div className="typo-body1-reading text-label-normal mb-6">{message}</div>
@@ -44,7 +44,7 @@ export default function ConfirmDialog({
 						label={isLoading ? '처리중...' : confirmText}
 						onClick={onConfirm}
 						disabled={isLoading}
-						className={variant === 'danger' ? 'bg-status-negative' : ''}
+						className={variant === 'danger' ? '!bg-status-destructive' : ''}
 					/>
 				</div>
 			</div>

@@ -13,7 +13,7 @@ const statusConfig = {
 	},
 	BLOCKED: {
 		label: '차단',
-		className: 'bg-status-negative text-white',
+		className: 'bg-status-destructive text-white',
 	},
 	INACTIVE: {
 		label: '비활성',
