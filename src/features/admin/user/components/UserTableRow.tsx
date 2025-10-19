@@ -45,18 +45,22 @@ export default function UserTableRow({ user }: UserTableRowProps) {
 	return (
 		<>
 			<tr className="border-b border-line-normal-normal hover:bg-background-normal-alternative">
-				<td className="px-4 py-4 typo-body2-medium text-label-strong">{user.id}</td>
-				<td className="px-4 py-4 typo-body1-reading text-label-normal">{user.email}</td>
-				<td className="px-4 py-4 typo-body1-reading text-label-normal">{user.nickname || '-'}</td>
-				<td className="px-4 py-4">
+				<td className="px-3 py-4 typo-body2-medium text-label-strong">{user.id}</td>
+				<td className="px-3 py-4 typo-body1-reading text-label-normal max-w-0 truncate" title={user.email}>
+					{user.email}
+				</td>
+				<td className="px-3 py-4 typo-body1-reading text-label-normal max-w-0 truncate" title={user.nickname || '-'}>
+					{user.nickname || '-'}
+				</td>
+				<td className="px-3 py-4">
 					<StatusBadge status={user.role === 'ADMIN' ? 'APPROVED' : 'ACTIVE'} size="sm" />
 				</td>
-				<td className="px-4 py-4">
+				<td className="px-3 py-4">
 					<StatusBadge status={user.status} size="sm" />
 				</td>
-				<td className="px-4 py-4 typo-body2-medium text-label-alternative">{formatDate(user.createdAt)}</td>
-				<td className="px-4 py-4">
-					<div className="flex gap-2">
+				<td className="px-3 py-4 typo-body2-medium text-label-alternative whitespace-nowrap">{formatDate(user.createdAt)}</td>
+				<td className="px-3 py-4">
+					<div className="flex gap-2 flex-nowrap">
 						<SolidBtn size="small" primary={false} label="상세보기" onClick={handleViewDetails} />
 						{user.status === 'ACTIVE' ? (
 							<SolidBtn size="small" primary={true} label="차단" onClick={() => setShowBlockDialog(true)} className="!bg-status-destructive" />

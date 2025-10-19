@@ -41,13 +41,13 @@ export default function UserInfoCard({ user }: UserInfoCardProps) {
 
 	return (
 		<>
-			<div className="bg-background-normal-normal border border-line-normal-normal rounded-lg p-4 md:p-6">
+			<div className="bg-background-normal-normal border border-line-normal-normal rounded-lg p-6">
 				<h2 className="typo-heading1 text-label-strong mb-6">기본 정보</h2>
 
-				<div className="flex flex-col md:flex-row gap-6">
+				<div className="flex gap-8">
 					{/* Profile Image */}
 					<div className="flex-shrink-0">
-						<div className="w-24 h-24 md:w-32 md:h-32 bg-background-normal-alternative rounded-lg flex items-center justify-center">
+						<div className="w-32 h-32 bg-background-normal-alternative rounded-lg flex items-center justify-center">
 							{user.profile.profileImage ? (
 								<Image
 									src={user.profile.profileImage}
@@ -57,49 +57,54 @@ export default function UserInfoCard({ user }: UserInfoCardProps) {
 									className="w-full h-full rounded-lg object-cover"
 								/>
 							) : (
-								<span className="text-2xl md:text-3xl text-label-alternative">👤</span>
+								<span className="text-3xl text-label-alternative">👤</span>
 							)}
 						</div>
 					</div>
 
 					{/* User Information */}
-					<div className="flex-1 space-y-4">
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div className="flex-1">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mb-6">
 							<div>
-								<label className="block typo-body2-medium text-label-alternative mb-1">이메일</label>
+								<label className="block typo-body2-medium text-label-alternative mb-2">사용자 ID</label>
+								<p className="typo-body1-reading text-label-strong">{user.id}</p>
+							</div>
+
+							<div className="md:col-span-2 lg:col-span-2">
+								<label className="block typo-body2-medium text-label-alternative mb-2">이메일</label>
 								<p className="typo-body1-reading text-label-strong">{user.email}</p>
 							</div>
 
 							<div>
-								<label className="block typo-body2-medium text-label-alternative mb-1">닉네임</label>
+								<label className="block typo-body2-medium text-label-alternative mb-2">닉네임</label>
 								<p className="typo-body1-reading text-label-strong">{user.profile.nickname || '닉네임 없음'}</p>
 							</div>
 
 							<div>
-								<label className="block typo-body2-medium text-label-alternative mb-1">역할</label>
-								<StatusBadge status={user.role === 'ADMIN' ? 'APPROVED' : 'ACTIVE'} size="sm" />
+								<label className="block typo-body2-medium text-label-alternative mb-2">역할</label>
+								<StatusBadge status={user.role === 'ADMIN' ? 'APPROVED' : 'ACTIVE'} size="md" />
 							</div>
 
 							<div>
-								<label className="block typo-body2-medium text-label-alternative mb-1">상태</label>
-								<StatusBadge status={user.status} size="sm" />
+								<label className="block typo-body2-medium text-label-alternative mb-2">상태</label>
+								<StatusBadge status={user.status} size="md" />
 							</div>
 
 							<div>
-								<label className="block typo-body2-medium text-label-alternative mb-1">가입일</label>
+								<label className="block typo-body2-medium text-label-alternative mb-2">가입일</label>
 								<p className="typo-body1-reading text-label-normal">{formatDate(user.createdAt)}</p>
 							</div>
 
 							{user.updatedAt !== user.createdAt && (
 								<div>
-									<label className="block typo-body2-medium text-label-alternative mb-1">수정일</label>
+									<label className="block typo-body2-medium text-label-alternative mb-2">수정일</label>
 									<p className="typo-body1-reading text-label-normal">{formatDate(user.updatedAt)}</p>
 								</div>
 							)}
 						</div>
 
 						{/* Action Button */}
-						<div className="pt-4">
+						<div className="flex gap-4">
 							{user.status === 'ACTIVE' ? (
 								<SolidBtn
 									primary={true}

@@ -125,15 +125,15 @@ export default function UserDetailPage() {
 	}
 
 	return (
-		<main className="px-4 md:px-8 py-6">
+		<main className="w-full h-full p-6">
 			<Suspense
 				fallback={
-					<div className="space-y-6">
+					<div className="w-full space-y-6">
 						<div className="w-32 h-10 bg-background-normal-alternative rounded-lg animate-pulse"></div>
 						<div className="h-8 w-48 bg-background-normal-alternative rounded animate-pulse"></div>
 						<div className="space-y-6">
 							{Array.from({ length: 3 }).map((_, i) => (
-								<div key={i} className="bg-background-normal-normal border border-line-normal-normal rounded-lg p-4 md:p-6 animate-pulse">
+								<div key={i} className="w-full bg-background-normal-normal border border-line-normal-normal rounded-lg p-6 animate-pulse">
 									<div className="h-6 w-24 bg-background-normal-alternative rounded mb-4"></div>
 									<div className="h-32 bg-background-normal-alternative rounded"></div>
 								</div>

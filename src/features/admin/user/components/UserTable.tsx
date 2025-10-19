@@ -34,16 +34,16 @@ export default function UserTable({ users, isLoading }: UserTableProps) {
 	return (
 		<div className="bg-background-normal-normal rounded-lg border border-line-normal-normal overflow-hidden">
 			<div className="overflow-x-auto">
-				<table className="w-full">
+				<table className="w-full min-w-[1200px]">
 					<thead className="bg-background-normal-alternative">
 						<tr>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">ID</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">이메일</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">닉네임</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">역할</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">상태</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">가입일</th>
-							<th className="px-4 py-3 text-left typo-body2-medium text-label-strong">작업</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-16">ID</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-64">이메일</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-32">닉네임</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-20">역할</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-20">상태</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-32">가입일</th>
+							<th className="px-3 py-3 text-left typo-body2-medium text-label-strong w-48">작업</th>
 						</tr>
 					</thead>
 					<tbody>

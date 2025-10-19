@@ -17,23 +17,25 @@ const providerColors = {
 
 export default function UserOAuthCard({ credentials }: UserOAuthCardProps) {
 	return (
-		<div className="bg-background-normal-normal border border-line-normal-normal rounded-lg p-4 md:p-6">
-			<h2 className="typo-heading1 text-label-strong mb-4">OAuth 연동</h2>
+		<div className="bg-background-normal-normal border border-line-normal-normal rounded-lg p-6">
+			<h2 className="typo-heading1 text-label-strong mb-6">OAuth 연동</h2>
 
 			{credentials.length > 0 ? (
-				<div className="space-y-3">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
 					{credentials.map((credential, index) => (
-						<div key={index} className="flex items-center justify-between p-3 bg-background-normal-alternative rounded-lg">
-							<div className="flex items-center gap-3">
+						<div key={index} className="flex items-center justify-between p-4 bg-background-normal-alternative rounded-lg">
+							<div className="flex items-center gap-4">
 								<div
-									className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-medium"
+									className="w-10 h-10 rounded-full flex items-center justify-center text-white text-lg font-medium"
 									style={{ backgroundColor: providerColors[credential.provider] }}
 								>
 									{credential.provider === 'KAKAO' ? 'K' : 'G'}
 								</div>
 								<div>
 									<p className="typo-body1-medium text-label-strong">{providerNames[credential.provider]}</p>
-									<p className="typo-body2-reading text-label-alternative">ID: {credential.providerUserId}</p>
+									<p className="typo-body2-reading text-label-alternative truncate max-w-32" title={credential.providerUserId}>
+										ID: {credential.providerUserId}
+									</p>
 								</div>
 							</div>
 							<StatusBadge status={credential.status} size="sm" />
