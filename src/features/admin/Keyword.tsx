@@ -17,8 +17,8 @@ const Keyword = () => {
 			const withUpdatedAt = { ...added, updatedAt: new Date().toISOString() };
 			setKeywords((prev) => [...prev, withUpdatedAt]);
 			setNewKeyword('');
-		} catch (err) {
-			console.error('키워드 추가 실패', err);
+		} catch {
+			// 키워드 추가 실패 처리
 		}
 	};
 
@@ -26,8 +26,8 @@ const Keyword = () => {
 		try {
 			const updated = await updateSearchKeyword(kw);
 			setKeywords((prev) => prev.map((k) => (k.id === updated.id ? updated : k)));
-		} catch (err) {
-			console.error('키워드 수정 실패', err);
+		} catch {
+			// 키워드 수정 실패 처리
 		}
 	};
 
@@ -38,8 +38,8 @@ const Keyword = () => {
 		try {
 			await deleteSearchKeyword(kw);
 			setKeywords((prev) => prev.filter((item) => item.id !== kw.id));
-		} catch (err) {
-			console.error('키워드 삭제 실패', err);
+		} catch {
+			// 키워드 삭제 실패 처리
 		}
 	};
 
@@ -48,8 +48,8 @@ const Keyword = () => {
 			try {
 				const data = await getSearchKeywords({});
 				setKeywords(data.content);
-			} catch (err) {
-				console.error(err);
+			} catch {
+				// 키워드 가져오기 실패 처리
 			}
 		};
 		fetchKeywords();

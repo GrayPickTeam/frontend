@@ -1,3 +1,5 @@
+'use server';
+
 import { tokenFetcher } from '@/shared/api/fetcher';
 
 // Types
@@ -69,9 +71,6 @@ export interface UserReportSent {
 	billTitle: string;
 	billProposeDate: string;
 }
-
-// Backward compatibility - this will be deprecated
-export type UserReport = UserReportReceived;
 
 export interface PageableResponse<T> {
 	content: T[];
@@ -209,12 +208,4 @@ export async function getUserSentReports({ userId, page = 0, size = 20 }: { user
 	}
 
 	return data.result;
-}
-
-/**
- * @deprecated Use getUserReceivedReports instead
- * Get user report history (backward compatibility)
- */
-export async function getUserReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
-	return getUserReceivedReports({ userId, page, size });
 }

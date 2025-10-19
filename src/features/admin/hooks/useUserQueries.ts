@@ -108,11 +108,3 @@ export function useUserSentReports({ userId, page = 0, size = 20 }: { userId: nu
 		enabled: !!userId,
 	});
 }
-
-/**
- * @deprecated Use useUserReceivedReports instead
- * Hook for fetching user report history (backward compatibility)
- */
-export function useUserReports({ userId, page = 0, size = 20 }: { userId: number; page?: number; size?: number }) {
-	return useUserReceivedReports({ userId, page, size });
-}

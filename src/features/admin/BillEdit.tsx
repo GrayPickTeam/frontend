@@ -32,9 +32,8 @@ const BillEdit = ({ id, billSummary, billAiTitle, billAiSummary, committeeName, 
 			alert('법안 수정이 완료되었습니다.');
 			removeBillInfo();
 			addEditedBill(id);
-		} catch (err) {
-			alert(`법안 수정 중 오류가 발생했습니다: ${err}`);
-			console.error(err);
+		} catch {
+			alert('법안 수정 중 오류가 발생했습니다.');
 		}
 	};
 
