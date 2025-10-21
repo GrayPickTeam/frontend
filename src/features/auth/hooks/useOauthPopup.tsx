@@ -9,6 +9,12 @@ interface OAuthPopUp {
 	isOpen: boolean;
 }
 
+// RN WebView / 브라우저 팝업 메시지 타입 정의
+interface OAuthMessage {
+	type?: 'OAUTH_CODE';
+	code?: string;
+}
+
 // Oauth팝업을 열고 팝업창을 통해 code를 수신하는 훅
 const useOAuthPopUp = (): OAuthPopUp => {
 	const popUpRef = useRef<Window | null>(null);
@@ -48,25 +54,49 @@ const useOAuthPopUp = (): OAuthPopUp => {
 		}
 	}, []);
 
-	// 부모 창에서 메시지 수신
+	// ✅ 부모 창에서 메시지 수신 (웹 브라우저 + RN WebView)
 	useEffect(() => {
 		if (window.opener) return;
 
 		const oAuthCodeListener = (event: MessageEvent) => {
-			if (event.origin !== window.location.origin) return;
+			try {
+				let data: unknown;
 
-			const { code } = event.data;
-			if (!code) return;
+				// RN WebView에서 오는 경우 문자열(JSON)일 수 있음
+				if (typeof event.data === 'string') {
+					data = JSON.parse(event.data);
+				} else {
+					data = event.data;
+				}
 
-			setCode(code);
-			setIsOpen(false);
+				// 타입가드
+				const isOAuthMessage = (obj: unknown): obj is OAuthMessage => {
+					return typeof obj === 'object' && obj !== null && ('code' in obj || 'type' in obj);
+				};
+
+				if (!isOAuthMessage(data)) return;
+
+				// RN WebView에서 오는 경우
+				if (data.type === 'OAUTH_CODE' && data.code) {
+					setCode(data.code);
+					setIsOpen(false);
+				}
+
+				// 기존 브라우저 팝업 방식
+				if (!data.type && data.code) {
+					setCode(data.code);
+					setIsOpen(false);
+				}
+			} catch (e) {
+				console.warn('OAuth 메시지 파싱 실패:', e);
+			}
 		};
 
 		window.addEventListener('message', oAuthCodeListener);
 		return () => window.removeEventListener('message', oAuthCodeListener);
 	}, []);
 
-	// 0.7초마다 열렸는지 확인
+	// 0.7초마다 팝업창 열림 여부 확인
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (popUpRef.current && popUpRef.current.closed) {

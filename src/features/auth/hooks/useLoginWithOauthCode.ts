@@ -24,6 +24,7 @@ export const useLoginWithOauthCode = (code: string | null) => {
 					router.back();
 				}
 			} catch (e) {
+				alert('에러');
 				console.error(e);
 				setIsFail(true);
 			}
