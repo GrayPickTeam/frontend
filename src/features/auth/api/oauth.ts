@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import { AuthResult, storeAuth } from '../utils/cookie';
 import { SocialType } from '@/shared/components/SocialBtn';
 
-type OAuthType = 'kakao' | 'google';
+export type OAuthType = 'kakao' | 'google';
 
 export const authorize = async (type: OAuthType) => {
 	const oauthURL = {
