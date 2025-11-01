@@ -1,3 +1,6 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type OAuthType = 'kakao' | 'google';
@@ -11,6 +14,8 @@ interface OAuthPopUp {
 
 const useOAuthPopUp = (): OAuthPopUp => {
 	const popUpRef = useRef<Window | null>(null);
+	const router = useRouter();
+
 	const [code, setCode] = useState<string | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -22,14 +27,16 @@ const useOAuthPopUp = (): OAuthPopUp => {
 
 		const url = OAUTH_URLS[type];
 
-		// ✅ RN WebView 환경: RN에게 URL을 직접 전달
+		// RN WebView 환경에서는 현재 창 리다이렉트
 		if (window.ReactNativeWebView) {
-			window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'OPEN_AUTH', url }));
+			localStorage.setItem('pre_login_history_length', String(window.history.length));
 			setIsOpen(true);
+			router.push(url);
+
 			return;
 		}
 
-		// ✅ 일반 브라우저 팝업
+		//  일반 브라우저에서는 팝업 사용
 		const width = 500;
 		const height = 600;
 		const left = window.screen.width / 2 - width / 2;
@@ -51,21 +58,14 @@ const useOAuthPopUp = (): OAuthPopUp => {
 		}
 	}, []);
 
-	// ✅ code 수신 (RN → WebView / 브라우저 팝업)
+	// code 수신 (팝업에서 부모로 전달)
 	useEffect(() => {
 		const oAuthCodeListener = (event: MessageEvent) => {
 			try {
 				const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
-
-				if (typeof data === 'object' && data !== null && ('code' in data || 'type' in data)) {
-					if (data.type === 'OAUTH_CODE' && data.code) {
-						setCode(data.code);
-						setIsOpen(false);
-					}
-					if (!data.type && data.code) {
-						setCode(data.code);
-						setIsOpen(false);
-					}
+				if (data && typeof data === 'object' && 'code' in data) {
+					setCode(data.code);
+					setIsOpen(false);
 				}
 			} catch (e) {
 				console.warn('OAuth 메시지 파싱 실패:', e);
@@ -76,7 +76,7 @@ const useOAuthPopUp = (): OAuthPopUp => {
 		return () => window.removeEventListener('message', oAuthCodeListener);
 	}, []);
 
-	// ✅ 팝업 상태 체크 (브라우저용)
+	// ✅ 팝업이 닫혔는지 주기적으로 체크 (브라우저용)
 	useEffect(() => {
 		const interval = setInterval(() => {
 			if (popUpRef.current && popUpRef.current.closed) {
