@@ -67,7 +67,7 @@ export const useOauthCallback = (type: OAuthType) => {
 		}
 
 		// 웹이나 rn내부가 아닌경우는 외부 브라우저 -> 딥링크로 복귀 시도
-		const deeplinkUrl = `com.graypick.co.kr://callback?code=${code}`;
+		const deeplinkUrl = `com.graypick://callback?code=${code}`;
 		let opened = false;
 
 		const handleBlur = () => {
