@@ -27,9 +27,13 @@ const useOAuthPopUp = (): OAuthPopUp => {
 
 		// RN WebView 환경에서는 현재 창 리다이렉트
 		if (window.ReactNativeWebView) {
-			localStorage.setItem('pre_login_history_length', String(window.history.length));
-			window.location.href = url;
-
+			window.ReactNativeWebView.postMessage(
+				JSON.stringify({
+					type: 'OPEN_OAUTH',
+					provider: type,
+					url,
+				}),
+			);
 			return;
 		}
 
