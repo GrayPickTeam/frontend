@@ -22,14 +22,22 @@ export default function UserDetailContent({ user }: UserDetailContentProps) {
 	return (
 		<div className="space-y-6">
 			{/* Back Button */}
-			<button onClick={handleBackToList} className="flex items-center gap-2 px-4 py-2 text-label-normal hover:text-label-strong">
+			<button
+				onClick={handleBackToList}
+				className="flex items-center gap-2 px-4 py-2"
+				style={{ color: 'var(--color-label-normal)' }}
+				onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-label-strong)')}
+				onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-label-normal)')}
+			>
 				<Back className="w-4 h-4" />
 				사용자 목록으로
 			</button>
 
 			{/* Title */}
 			<div className="flex items-center justify-between">
-				<h1 className="typo-display1 text-label-strong">사용자 상세정보</h1>
+				<h1 className="typo-display1" style={{ color: 'var(--color-label-strong)' }}>
+					사용자 상세정보
+				</h1>
 			</div>
 
 			{/* User Information Cards */}

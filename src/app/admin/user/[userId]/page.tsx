@@ -16,8 +16,12 @@ export default async function UserDetailPage({ params }: Props) {
 		return (
 			<main className="px-4 md:px-8 py-6">
 				<div className="text-center py-16">
-					<h1 className="typo-heading1 text-label-strong mb-4">잘못된 사용자 ID</h1>
-					<p className="typo-body1-reading text-label-normal">올바른 사용자 ID를 입력해주세요.</p>
+					<h1 className="typo-heading1 mb-4" style={{ color: 'var(--color-label-strong)' }}>
+						잘못된 사용자 ID
+					</h1>
+					<p className="typo-body1-reading" style={{ color: 'var(--color-label-normal)' }}>
+						올바른 사용자 ID를 입력해주세요.
+					</p>
 				</div>
 			</main>
 		);
