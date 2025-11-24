@@ -91,6 +91,12 @@
 	--color-inverse-primary-sub: #42f6c2;
 	--color-inverse-primary-background: #1b1c1e;
 	--color-inverse-primary-label: #f7f7f8;
+
+	/* 그림자 */
+	--shadow-normal: 0px 0px 1px 0px #00000014, 0px 0px 1px 0px #00000014, 0px 1px 2px 0px #0000001f;
+	--shadow-emphasize: 0px 0px 1px 0px #00000014, 0px 1px 4px 0px #00000014, 0px 2px 8px 0px #0000001f;
+	--shadow-strong: 0px 0px 4px 0px #00000014, 0px 4px 8px 0px #00000014, 0px 6px 12px 0px #0000001f;
+	--shadow-heavy: 0px 0px 8px 0px #00000014, 0px 8px 16px 0px #00000014, 0px 16px 20px 0px #0000001f;
 }
 
 @media (prefers-color-scheme: dark) {
