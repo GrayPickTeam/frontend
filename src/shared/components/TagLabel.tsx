@@ -50,7 +50,7 @@ const committeeColorGroupMap: Record<CommitteeName, ColorGroup> = {
  */
 const TagLabel = ({ type, text }: TagLabelProps) => {
 	// TODO: status 타입 정의시 색깔 부여
-	const group = type === 'status' ? 'blue' : committeeColorGroupMap[text];
+	const group = type === 'status' ? 'blue' : committeeColorGroupMap[text] || 'blue';
 	const { bg, text: textColor } = colorClassMap[group];
 	const colorClassName = `${bg} ${textColor}`;
 

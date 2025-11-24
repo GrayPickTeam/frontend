@@ -26,3 +26,9 @@ export const formatDateToKorean = (dateStr: string) => {
 	const [year, month, day] = dateStr.split('.').map(Number);
 	return `${year}년 ${month}월 ${day}일`;
 };
+
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: (string | undefined | null | boolean)[]): string {
+	return twMerge(inputs.filter(Boolean).join(' '));
+}
