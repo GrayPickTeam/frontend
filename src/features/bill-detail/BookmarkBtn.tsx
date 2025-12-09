@@ -30,9 +30,9 @@ const BookmarkBtn = ({ id, isScrapped }: { id: string; isScrapped: boolean }) =>
 	};
 
 	return (
-		<button onClick={() => toggleBookmark(id)} className="flex gap-1 items-center align-middle">
+		<button onClick={() => toggleBookmark(id)} className="flex gap-1 items-center">
 			<BookmarkIcon isChecked={isBookmarked} className="my-0.5" />
-			<span className={`${isBookmarked ? 'text-primary-main-normal' : 'text-label-alternative/61'}`}>북마크</span>
+			<span className={`${isBookmarked ? 'text-primary-main-normal' : 'text-label-alternative'} typo-body2-normal font-bold`}>북마크</span>
 		</button>
 	);
 };

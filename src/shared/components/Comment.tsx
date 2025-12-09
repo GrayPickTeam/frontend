@@ -86,7 +86,7 @@ const Comment = ({
 				<div>
 					<div className="typo-body2-normal font-bold text-label-normal desktop:typo-body1-normal">{nickname}</div>
 					{!isEditMode && (
-						<div className="typo-label2 font-regular text-line-normal desktop:typo-body2-normal">
+						<div className="typo-label2 font-regular text-[#aeb0b6] desktop:typo-body2-normal">
 							{daysAgo} {isEdited && '(수정됨)'}
 						</div>
 					)}
@@ -107,10 +107,13 @@ const Comment = ({
 				)}
 
 				<div className="flex w-full justify-between">
-					<button onClick={likeFn} className={`flex items-center typo-label1-normal font-regular ${isLiked ? 'text-[#ff4242]' : ''}`}>
+					<button
+						onClick={likeFn}
+						className={`flex items-center typo-label1-normal font-regular ${isLiked ? 'text-[var(--color-red-60)]' : 'text-[#aeb0b6]'} gap-1`}
+					>
 						<HeartIcon isLiked={isLiked} className="h-4 w-4 desktop:w-5 desktop:h-5" /> {likeCount}
 					</button>
-					<div className="flex typo-caption1 font-regular gap-2 desktop:typo-body2-normal">
+					<div className="flex typo-caption1 font-regular text-[#aeb0b6] gap-2 desktop:typo-body2-normal">
 						{isWriter ? (
 							isEditMode ? (
 								<>

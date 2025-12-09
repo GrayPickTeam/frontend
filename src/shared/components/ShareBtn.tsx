@@ -23,7 +23,7 @@ const ShareButton = () => {
 	return (
 		<button onClick={handleCopyLink} className="flex gap-1 items-center cursor-pointer">
 			<Image src="/svgs/share.svg" alt="공유하기" width={18} height={18} draggable={false} className="py-0.5" />
-			<span className="typo-body2-normal font-bold text-label-alternative/61">공유하기</span>
+			<span className="typo-body2-normal font-bold text-label-alternative">공유하기</span>
 		</button>
 	);
 };
