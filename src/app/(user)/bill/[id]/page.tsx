@@ -9,6 +9,7 @@ import { cookies } from 'next/headers';
 import { COOKIE_NAME } from '@/shared/const/cookie';
 import BackBtn from '@/shared/components/BackBtn';
 import DetailClientFeatures from '@/features/bill-detail/DetailClientFeatures';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
 	title: '법안 상세페이지',
@@ -31,6 +32,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 				<DetailContent detail={billDetail.billSummary || ''} />
 				<DetailProcess history={billDetail.history} />
 				<DetailClientFeatures id={id} nickname={nickname} profileImg={profileImg} billDetail={billDetail} billReactions={billReactions.result} />
+				<Toaster />
 			</article>
 			<ScrollUpBtn />
 		</div>
