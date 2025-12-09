@@ -9,7 +9,7 @@ import Image from 'next/image';
 interface DetailOpinionProps {
 	ref: RefObject<HTMLElement | null>;
 	id: string;
-	profileImg: string;
+	profileImg: string | undefined;
 	billReactions: ReactionCounts;
 }
 
@@ -60,8 +60,8 @@ interface EmojiBtnProps {
 	text: string;
 	count: number;
 	total: number;
-	profileImg: string;
-	userReaction: BillReaction;
+	profileImg: string | undefined;
+	userReaction: BillReaction | null;
 	clickFn: () => void;
 }
 
@@ -102,7 +102,7 @@ const EmojiBtn = ({ label, emoji, text, count, total, profileImg, userReaction, 
 					<span>{text}</span>
 				</div>
 				<div className="flex items-center gap-[8px]">
-					{isSelected && (
+					{isSelected && profileImg && (
 						<Image
 							src={profileImg}
 							alt="프로필 이미지"

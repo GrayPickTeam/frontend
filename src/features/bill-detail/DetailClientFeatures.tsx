@@ -8,8 +8,8 @@ import DetailOpinion from './DetailOpinion';
 
 interface DetailClientFeaturesProps {
 	id: string;
-	nickname: string;
-	profileImg: string;
+	nickname: string | undefined;
+	profileImg: string | undefined;
 	billDetail: BillDetalProps;
 	billReactions: ReactionCounts;
 }

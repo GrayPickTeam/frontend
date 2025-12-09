@@ -27,7 +27,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 			<article className="flex flex-col items-center w-full max-w-desktop gap-6 desktop:gap-9">
 				<BackBtn />
 				<DetailTitle {...billDetail} />
-				<div className="border border-line-neutral	w-full" />
 				<DetailAiSummary {...billDetail} />
 				<DetailContent detail={billDetail.billSummary || ''} />
 				<DetailProcess history={billDetail.history} />

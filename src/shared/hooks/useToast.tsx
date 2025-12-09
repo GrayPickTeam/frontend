@@ -3,6 +3,8 @@ import CautionIcon from '../icon/Caution';
 import NegativeIcon from '../icon/Negative';
 import PositiveIcon from '../icon/Positive';
 
+const TOAST_ID = 'single_custom_toast';
+
 interface ToastHook {
 	showSuccess: (message: string) => string;
 	showError: (message: string) => string;
@@ -12,6 +14,7 @@ interface ToastHook {
 const useToast = (): ToastHook => {
 	const showCustomToast = (message: string, type: 'success' | 'error' | 'info') => {
 		return toast.custom(() => <CustomToast message={message} type={type} />, {
+			id: TOAST_ID,
 			position: 'bottom-center',
 			duration: 1500,
 			removeDelay: 500,
