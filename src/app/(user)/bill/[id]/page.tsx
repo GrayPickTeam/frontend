@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getBillDetail, getBillReactions } from '@/features/bill-detail/api/server';
 import DetailCommentList from '@/features/bill-detail/DetailCommentList';
 import DetailContent from '@/features/bill-detail/DetailContent';
-import DetailInfo from '@/features/bill-detail/DetailInfo';
+import DetailAiSummary from '@/features/bill-detail/DetailAiSummary';
 import DetailOpinion from '@/features/bill-detail/DetailOpinion';
 import DetailTitle from '@/features/bill-detail/DetailTitle';
 import ScrollUpBtn from '@/shared/components/ScrollUpBtn';
@@ -26,7 +26,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 				<BackBtn />
 				<DetailTitle {...billDetail} />
 				<div className="border border-line-neutral	w-full" />
-				<DetailInfo {...billDetail} />
+				<DetailAiSummary {...billDetail} />
 				<DetailContent detail={billDetail.billSummary || ''} />
 				<DetailProcess history={billDetail.history} />
 				<DetailOpinion id={id} isScrapped={billDetail.scrapped} {...billReactions.result} />
