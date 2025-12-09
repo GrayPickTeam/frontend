@@ -1,7 +1,7 @@
 'use client';
 
 import Comment from '@/shared/components/Comment';
-import React from 'react';
+import React, { RefObject } from 'react';
 import AddComment from './AddComment';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getBillComments } from './api/server';
@@ -13,11 +13,12 @@ import { useReportModal } from './hooks/useReportModal';
 import CommentSkeleton from './skeletons/Comment.skeleton';
 
 interface CommentListType {
+	ref: RefObject<HTMLElement | null>;
 	billId: string | number;
 	nickname: string;
 }
 
-const DetailCommentList = ({ billId, nickname }: CommentListType) => {
+const DetailCommentList = ({ ref, billId, nickname }: CommentListType) => {
 	const { data, fetchNextPage, hasNextPage, isLoading, isFetching, isError } = useInfiniteQuery({
 		queryKey: [QUERY_KEYS.billComments, billId],
 		queryFn: ({ pageParam }) => getBillComments({ id: billId, page: pageParam }),
@@ -37,7 +38,7 @@ const DetailCommentList = ({ billId, nickname }: CommentListType) => {
 	const commentList = data?.pages.flatMap((page) => page.result.comments.content) ?? [];
 
 	return (
-		<section className="flex flex-col w-full px-1 py-5 gap-[15px] desktop:px-12 desktop::py-8">
+		<section ref={ref} className="flex flex-col w-full px-1 py-5 gap-[15px]">
 			<header className="flex typo-heading2 font-bold text-label-normal desktop:typo-heading1 gap-2">
 				댓글 <p className="typo-heading2 desktop:typo-heading1 text-label-alternative">{commentList.length}</p>
 			</header>

@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
 import { getBillDetail, getBillReactions } from '@/features/bill-detail/api/server';
-import DetailCommentList from '@/features/bill-detail/DetailCommentList';
 import DetailContent from '@/features/bill-detail/DetailContent';
 import DetailAiSummary from '@/features/bill-detail/DetailAiSummary';
-import DetailOpinion from '@/features/bill-detail/DetailOpinion';
 import DetailTitle from '@/features/bill-detail/DetailTitle';
 import ScrollUpBtn from '@/shared/components/ScrollUpBtn';
 import DetailProcess from '@/features/bill-detail/DetailProcess';
 import { cookies } from 'next/headers';
 import { COOKIE_NAME } from '@/shared/const/cookie';
 import BackBtn from '@/shared/components/BackBtn';
+import DetailClientFeatures from '@/features/bill-detail/DetailClientFeatures';
 
 export const metadata: Metadata = {
 	title: '법안 상세페이지',
@@ -18,7 +17,9 @@ export const metadata: Metadata = {
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
 	const { id } = await params;
 	const [billDetail, billReactions] = await Promise.all([getBillDetail(id), getBillReactions(id)]);
-	const nickname = (await cookies()).get(COOKIE_NAME.auth.nickname)?.value;
+	const cookieStore = await cookies();
+	const nickname = cookieStore.get(COOKIE_NAME.auth.nickname)?.value;
+	const profileImg = cookieStore.get(COOKIE_NAME.auth.img)?.value;
 
 	return (
 		<div className="flex flex-col items-center p-5 pb-[100px]  desktop:pt-12 desktop:pb-[160px] w-full">
@@ -29,8 +30,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 				<DetailAiSummary {...billDetail} />
 				<DetailContent detail={billDetail.billSummary || ''} />
 				<DetailProcess history={billDetail.history} />
-				<DetailOpinion id={id} isScrapped={billDetail.scrapped} {...billReactions.result} />
-				<DetailCommentList billId={id} nickname={nickname || ''} />
+				<DetailClientFeatures id={id} nickname={nickname} profileImg={profileImg} billDetail={billDetail} billReactions={billReactions.result} />
 			</article>
 			<ScrollUpBtn />
 		</div>
