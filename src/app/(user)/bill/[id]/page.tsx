@@ -9,6 +9,7 @@ import ScrollUpBtn from '@/shared/components/ScrollUpBtn';
 import DetailProcess from '@/features/bill-detail/DetailProcess';
 import { cookies } from 'next/headers';
 import { COOKIE_NAME } from '@/shared/const/cookie';
+import BackBtn from '@/shared/components/BackBtn';
 
 export const metadata: Metadata = {
 	title: '법안 상세페이지',
@@ -22,6 +23,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 	return (
 		<div className="flex flex-col items-center p-5 pb-[100px]  desktop:pt-12 desktop:pb-[160px] w-full">
 			<article className="flex flex-col items-center w-full max-w-desktop gap-6 desktop:gap-9">
+				<BackBtn />
 				<DetailTitle {...billDetail} />
 				<div className="border border-line-neutral	w-full" />
 				<DetailInfo {...billDetail} />
