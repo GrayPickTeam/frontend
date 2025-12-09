@@ -140,7 +140,7 @@ export const IconWithCount = ({ src, alt, nums }: { src: string; alt: string; nu
 	return (
 		<div className="flex items-center gap-1">
 			<Image src={src} alt={alt} width={14} height={14} draggable={false} />
-			<span className="typo-label2 font-regular text-label-alternative opacity-[61%]" aria-label={alt}>
+			<span className="typo-label2 font-regular text-label-alternative" aria-label={alt}>
 				{nums}
 			</span>
 		</div>

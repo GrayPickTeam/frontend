@@ -1,7 +1,7 @@
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 import { useRef, useState } from 'react';
 
-export const useReactionVisble = () => {
+export const useVisible = () => {
 	const targetRef = useRef<HTMLDivElement>(null);
 	const [visible, setVisible] = useState(true);
 	const { scrollY } = useScroll();
