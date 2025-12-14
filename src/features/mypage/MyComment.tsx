@@ -8,6 +8,8 @@ import { QUERY_KEYS } from '@/shared/const/reactQuery';
 import InfinityScrollSpinner from '@/shared/components/InfinityScrollSpinner';
 import ErrorIndicator from '@/shared/components/ErrorIndicator';
 import MyCommentSkeleton from './skeletons/MyComment.Skeleton';
+import Link from 'next/link';
+import { CLIENT_NAVI_PATH } from '@/shared/const/url';
 
 const MyComment = () => {
 	const { data, fetchNextPage, hasNextPage, isLoading, isFetching, isError } = useInfiniteQuery({
@@ -41,12 +43,12 @@ const MyComment = () => {
 							<HeartIcon className="w-4 h-4 desktop:w-5 desktop:h-5" />
 							<span className="typo-label1-normal desktop:typo-body1-normal text-[#AEB0B6]">{comment.likeCount}</span>
 						</div>
-						<div className="flex pl-3 gap-3">
+						<Link href={CLIENT_NAVI_PATH.billDetail.getPath(comment.billId)} className="flex pl-3 gap-3 items-center">
 							<TagIcon />
 							<span className="typo-body1-normal font-bold">{comment.title}</span>
-						</div>
+						</Link>
 					</div>
-					{index !== flatComments.length - 1 && <div className="h-px bg-line-normal w-full" />}
+					{index !== flatComments.length - 1 && <div className="h-px bg-line-normal-normal w-full" />}
 				</Fragment>
 			))}
 

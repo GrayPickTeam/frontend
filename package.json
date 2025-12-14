@@ -1,6 +1,6 @@
 {
 	"name": "tt_frontend",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
@@ -16,9 +16,10 @@
 		"@tanstack/react-query": "^5.81.5",
 		"framer-motion": "^12.11.4",
 		"lint-staged": "^15.5.0",
-		"next": "15.2.4",
+		"next": "15.2.8",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
+		"react-hot-toast": "^2.6.0",
 		"react-scan": "^0.4.3",
 		"tailwind-merge": "^3.3.1"
 	},

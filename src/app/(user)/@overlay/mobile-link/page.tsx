@@ -11,7 +11,7 @@ export default async function Page() {
 	return (
 		<HamberMenu>
 			<div className="flex flex-col mt-[68px] px-2.5 py-2 gap-3">
-				<Logo className="w-[150px] h-[32px]  ml-4.5" />
+				<Logo className="w-[150px] h-[42px]  ml-4.5" />
 				<nav className="flex flex-col">
 					{NAVIBAR_PATH.map(({ name, path }) => (
 						<NaviBtn key={name} title={name} link={path} />

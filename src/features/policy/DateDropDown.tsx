@@ -23,7 +23,7 @@ export const DateDropDown = ({ label, about, children, className }: DropdownProp
 	return (
 		<div role="listbox" className="relative inline-block">
 			<button
-				className="flex items-center h-10 px-[11px] gap-1 border border-line-neutral rounded-[10px] typo-body2-normal cursor-pointer"
+				className="flex items-center h-10 px-[11px] gap-1 border border-line-normal-neutral rounded-[10px] typo-body2-normal cursor-pointer"
 				onClick={(e) => {
 					e.stopPropagation();
 					toggle();
@@ -37,7 +37,7 @@ export const DateDropDown = ({ label, about, children, className }: DropdownProp
 				<aside
 					role="dialog"
 					aria-label={about}
-					className={`absolute left-0 mt-2 px-5 py-2 z-10 bg-white border border-line-neutral shadow-md rounded-[16px] ${className}`}
+					className={`absolute left-0 mt-2 px-5 py-2 z-10 bg-white border border-line-normal-neutral shadow-md rounded-[16px] ${className}`}
 					ref={desktopRef}
 				>
 					{children(close)}

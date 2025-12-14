@@ -12,6 +12,13 @@ export const CLIENT_NAVI_PATH = {
 	search: { name: '검색페이지', path: '/search' },
 	policyService: { name: '서비스 이용약관', path: '/policy/service' },
 	policyPrivacy: { name: '개인정보 처리방침', path: '/policy/privacy' },
+	withDrawal: { name: '회원탈퇴', path: '/mypage/withdrawal' },
+} as const;
+
+export const ADMIN_NAVI_PATH = {
+	keywords: { name: '검색 키워드 관리', path: '/admin/keywords' },
+	user: { name: '회원 관리', path: '/admin/user' },
+	bill: { name: '법안 관리', path: '/admin/bill' },
 } as const;
 
 export const MODAL_PATH = {
@@ -21,10 +28,10 @@ export const MODAL_PATH = {
 };
 
 const NAVIBAR_VALUES = ['home', 'bill'] as const;
-
 export const DEPLOY_URL = 'https://graypick.co.kr';
 
 export const NAVIBAR_PATH = NAVIBAR_VALUES.map((key) => CLIENT_NAVI_PATH[key]);
+export const ADMIN_NAVIBAR_PATH = Object.values(ADMIN_NAVI_PATH);
 
 export const SERVER_URL = {
 	oauth: 'api/auth/oauth',

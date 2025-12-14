@@ -21,7 +21,7 @@ const ContentHeader = ({ title, link, keywordList, isLoginRequired }: ContentHea
 				)}
 
 				{isLoginRequired && (
-					<span className="typo-body1-normal font-regular desktop:typo-title2 desktop:font-bold text-label-alternative opacity-[61%]">
+					<span className="typo-body1-normal font-regular desktop:typo-title2 desktop:font-bold text-label-alternative opacity-[50%]">
 						#로그인하고 관심 키워드를 골라보세요
 					</span>
 				)}

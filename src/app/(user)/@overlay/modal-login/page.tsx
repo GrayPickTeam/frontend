@@ -15,7 +15,7 @@ export default function Page() {
 		<Modal>
 			<div className="flex flex-col items-center w-full px-6 desktop:px-0 py-[42px] max-w-[335px] desktop:max-w-[320px] desktop:pt-[143px]  gap-6 desktop:gap-[48px] ">
 				<div className="flex flex-col gap-5 items-center">
-					<Logo className="w-[150px] h-[32px] desktop:w-[175px] desktop:h-[37.5px]" />
+					<Logo className="w-[112px] h-[32px] desktop:w-[175px] desktop:h-[50px]" />
 					<div className="h-12 text-center typo-body2-normal  desktop:typo-body1-normal ">
 						3초면 끝.
 						<br />

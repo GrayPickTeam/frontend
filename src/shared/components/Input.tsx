@@ -54,7 +54,7 @@ export default function Input<T extends Record<string, unknown> = Record<string,
 	const getBorderClass = () => {
 		if (errMsg) return 'border-status-destructive focus:border-status-destructive';
 		if (successMsg) return 'border-status-success focus:border-status-success';
-		return 'border-line-normal focus:border-black';
+		return 'border-line-normal-normal focus:border-black';
 	};
 
 	return (

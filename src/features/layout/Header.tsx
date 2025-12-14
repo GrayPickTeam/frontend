@@ -20,7 +20,7 @@ const Header = async () => {
 		<header className="sticky top-0 w-full px-5 mx-auto flex justify-center bg-white z-20 shadow-xs">
 			<div className="flex justify-between items-center top-0 w-full max-w-maxw h-16">
 				<Link href="/" className="font-medium">
-					<Logo className="w-[97px] min-[960px]:w-[120px] min-[960px]:h-[30px] object-contain" />
+					<Logo className="w-[112px] h-[32px] object-contain" role="img" aria-label="서비스 로고" />
 				</Link>
 				<Navibar />
 				<div className="flex gap-5 items-center ">
@@ -36,7 +36,7 @@ const Header = async () => {
 								height={32}
 								draggable={false}
 								sizes="100vw"
-								className="rounded-full w-8 h-8 object-cover object-center border-1 border-line-normal"
+								className="rounded-full w-8 h-8 object-cover object-center border-1 border-line-normal-normal"
 							/>
 						</Link>
 					) : (

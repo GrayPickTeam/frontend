@@ -1,4 +1,4 @@
-# [그래, 이 픽(gray pick)](https://graypick.co.kr/)
+# [그레이픽(gray pick)](https://graypick.co.kr/)
 
 법안 정보를 생활밀착형으로 쉽고 흥미롭게 추천해주는 AI 기반 큐레이션 서비스로, 복잡한 정치 정보를 일상과 연결하여 개인 맞춤형으로 제공하는 정치 참여 활성화 플랫폼
 

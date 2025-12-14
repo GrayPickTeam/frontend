@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server';
 import { COOKIE_NAME } from './shared/const/cookie';
 import { clearAuth } from './features/auth/utils/cookie';
 import { MODAL_PATH } from './shared/const/url';
+import { parseJwt } from './shared/util/server';
 
 export async function middleware(req: NextRequest) {
 	const { pathname } = req.nextUrl;
@@ -11,7 +12,7 @@ export async function middleware(req: NextRequest) {
 
 	// 오타 방지용 상수값 관리
 	const { access, nickname } = COOKIE_NAME.auth;
-	const protectedPaths = ['/onboarding', '/mypage', '/mypage/profile'];
+	const protectedPaths = ['/onboarding', '/mypage', '/mypage/profile', '/mypage/withdrawal'];
 
 	const hasToken = cookieStore.has(access);
 	const nickValue = cookieStore.get(nickname)?.value;
@@ -30,6 +31,20 @@ export async function middleware(req: NextRequest) {
 	if (!hasToken && protectedPaths.includes(pathname)) {
 		await clearAuth();
 		return NextResponse.redirect(new URL('/?logout=true', req.url));
+	}
+
+	if (pathname.startsWith('/admin')) {
+		const token = cookieStore.get(access)?.value;
+
+		if (!token) {
+			return NextResponse.redirect(new URL('/', req.url));
+		}
+
+		const payload = parseJwt(token);
+
+		if (!payload || payload.role !== 'ADMIN') {
+			return NextResponse.redirect(new URL('/', req.url));
+		}
 	}
 
 	return NextResponse.next();

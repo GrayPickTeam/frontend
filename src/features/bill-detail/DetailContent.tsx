@@ -1,14 +1,45 @@
+'use client';
+
 import Image from 'next/image';
 import { normalizeTextStructure } from '@/shared/util';
+import { useEffect, useRef, useState } from 'react';
 
 const DetailContent = ({ detail }: { detail: string }) => {
+	const textRef = useRef<HTMLParagraphElement | null>(null);
+	const [isClamped, setIsClamped] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	useEffect(() => {
+		if (detail && textRef.current) {
+			const element = textRef.current;
+
+			if (!isExpanded) {
+				const clamped = element.scrollHeight > element.clientHeight;
+				setIsClamped(clamped);
+			}
+		}
+	}, [detail, isExpanded]);
+
 	return (
-		<section className="flex flex-col w-full px-1 py-5 gap-3 desktop:px-9 desktop:py-8">
+		<section className="flex flex-col w-full gap-3 desktop:px-[20px]">
 			<h3 className="typo-heading2 font-bold text-label-normal desktop:typo-heading1">제안 이유 및 주요 내용</h3>
 			{detail ? (
-				<p className="whitespace-pre-wrap typo-body2-normal font-regular text-label-normal desktop:typo-body1-normal">
-					{normalizeTextStructure(detail)}
-				</p>
+				<div className="flex flex-col gap-[24px]">
+					<p
+						ref={textRef}
+						className={`whitespace-pre-wrap typo-body2-normal font-regular text-label-normal desktop:typo-body1-normal ${isExpanded ? '' : 'line-clamp-3'}`}
+					>
+						{normalizeTextStructure(detail)}
+					</p>
+					{!isExpanded && isClamped && (
+						<button
+							className="w-full typo-body2-normal text-label-normal px-[20px] py-[9px] border border-line-normal-neutral rounded-[10px]"
+							onClick={() => setIsExpanded(true)}
+						>
+							더보기
+						</button>
+					)}
+				</div>
 			) : (
 				<div className="flex flex-col items-center w-full py-9 desktop:py-15 gap-8">
 					<Image

@@ -12,9 +12,9 @@ const ScrollUpBtn = () => {
 	return (
 		<button
 			onClick={handleScrollToTop}
-			className="hidden desktop:flex flex-col items-center justify-center h-10 w-10 fixed right-10 bottom-10 cursor-pointer border border-line-alternative rounded-full"
+			className="hidden desktop:flex flex-col items-center justify-center h-10 w-10 fixed right-10 bottom-20 bg-bg-normal-normal cursor-pointer border border-line-normal-alternative rounded-full shadow-normal"
 		>
-			<svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M2 1.33301L14 1.33301" stroke="#171719" strokeLinecap="square" strokeLinejoin="round" />
 				<path
 					fillRule="evenodd"
