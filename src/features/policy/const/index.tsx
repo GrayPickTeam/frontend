@@ -641,11 +641,11 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 				<>
 					<p className={PLAIN_TEXT_STYLE}>그레이픽은 다음의 개인정보 항목을 처리하고 있습니다.</p>
 					<div className="max-w-[700px] w-full overflow-x-auto custom-scrollbar">
-						<table className="w-[700px] border-collapse border-line-normal typo-body1-normal font-regular text-label-normal">
+						<table className="w-[700px] border-collapse border-line-normal-normal typo-body1-normal font-regular text-label-normal">
 							<thead>
 								<tr>
 									{['구분', '수집시긴', '필수여부', '수집항목', '이용목적', '보유기간'].map((e) => (
-										<th key={e} className="border border-line-normal p-3">
+										<th key={e} className="border border-line-normal-normal p-3">
 											{e}
 										</th>
 									))}
@@ -675,7 +675,7 @@ export const PRIVACY_TERMS: Record<TERM_WRITTEN_DATE, TermItem[]> = {
 								].map((row, i) => (
 									<tr key={i}>
 										{row.map((cell, j) => (
-											<td key={j} className="border border-line-normal px-4 py-2 align-top w-[120px]">
+											<td key={j} className="border border-line-normal-normal px-4 py-2 align-top w-[120px]">
 												{cell}
 											</td>
 										))}

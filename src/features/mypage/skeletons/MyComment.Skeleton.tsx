@@ -6,7 +6,7 @@ const MyCommentSkeleton = () => {
 			{Array.from({ length: 6 }).map((_, idx) => (
 				<Fragment key={idx}>
 					<CommentSlice />
-					{idx !== 5 && <div className="h-px bg-line-normal w-full" />}
+					{idx !== 5 && <div className="h-px bg-line-normal-normal w-full" />}
 				</Fragment>
 			))}
 		</div>

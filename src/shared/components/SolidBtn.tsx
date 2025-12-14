@@ -41,13 +41,10 @@ export const SolidBtn = <T extends Record<string, unknown> = Record<string, neve
 	...rest
 }: SolidBtnProps<T>) => {
 	const base = 'flex items-center justify-center whitespace-nowrap hover:opacity-90';
-	const variant = primary ? 'text-white bg-primary-main-normal' : 'text-label-neutral/88 bg-label-normal/8';
+	const variant = primary ? 'text-white bg-primary-main-normal' : 'text-label-neutral bg-bg-normal-alternative';
 	const sizeClass = sizeMap[size];
 
-	const mergedClassName = twMerge(
-		`${base} ${variant} ${sizeClass} disabled:bg-interaction-disable disabled:text-label-assistive disabled:opacity-50`,
-		className,
-	);
+	const mergedClassName = twMerge(`${base} ${variant} ${sizeClass} disabled:bg-interaction-disable disabled:text-label-assistive`, className);
 	return (
 		<button
 			type="button"

@@ -18,7 +18,7 @@ const SearchBar = () => {
 				onSubmit={(e) => {
 					e.preventDefault();
 				}}
-				className="flex p-3 gap-2 border-2 w-full items-center max-w-[660px] border-line-normal focus-within:border-primary-main-normal rounded-[12px]"
+				className="flex p-3 gap-2 border-2 w-full items-center max-w-[660px] border-line-normal-normal focus-within:border-primary-main-normal rounded-[12px]"
 			>
 				<SearchIcon width={20} height={20} className="text-label-assistive" />
 

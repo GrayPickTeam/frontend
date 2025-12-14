@@ -27,7 +27,7 @@ const DetailBottomActionBar = ({ id, reactionCount, commentCount, scrapped, opin
 		<>
 			<div ref={targetRef} className="flex flex-col w-full gap-[16px]">
 				<ActionBarContent {...contentProps} />
-				<div className="border border-line-neutral w-full" />
+				<div className="border border-line-normal-neutral w-full" />
 			</div>
 
 			<AnimatePresence>
@@ -37,7 +37,7 @@ const DetailBottomActionBar = ({ id, reactionCount, commentCount, scrapped, opin
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 30 }}
 						transition={{ duration: 0.3 }}
-						className="flex flex-col items-center fixed bottom-0 w-full gap-[16px] bg-bg-normal-normal px-[20px] py-[16px] border border-line-neutral z-50"
+						className="flex flex-col items-center fixed bottom-0 w-full gap-[16px] bg-bg-normal-normal px-[20px] py-[16px] border border-line-normal-neutral z-50"
 					>
 						<ActionBarContent {...contentProps} />
 					</motion.div>

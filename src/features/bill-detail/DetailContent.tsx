@@ -33,7 +33,7 @@ const DetailContent = ({ detail }: { detail: string }) => {
 					</p>
 					{!isExpanded && isClamped && (
 						<button
-							className="w-full typo-body2-normal text-label-normal px-[20px] py-[9px] border border-line-normal rounded-[10px]"
+							className="w-full typo-body2-normal text-label-normal px-[20px] py-[9px] border border-line-normal-neutral rounded-[10px]"
 							onClick={() => setIsExpanded(true)}
 						>
 							더보기

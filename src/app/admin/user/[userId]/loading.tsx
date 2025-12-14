@@ -16,7 +16,7 @@ export default function Loading() {
 			<div className="space-y-6">
 				<div
 					className="border rounded-lg p-4 md:p-6 animate-pulse"
-					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal)' }}
+					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal-normal)' }}
 				>
 					<div className="h-6 w-24 rounded mb-6" style={{ backgroundColor: 'var(--color-fill-alternative)' }}></div>
 					<div className="flex gap-6">
@@ -36,7 +36,7 @@ export default function Loading() {
 
 				<div
 					className="border rounded-lg p-4 md:p-6 animate-pulse"
-					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal)' }}
+					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal-normal)' }}
 				>
 					<div className="h-6 w-24 rounded mb-4" style={{ backgroundColor: 'var(--color-fill-alternative)' }}></div>
 					<div className="flex gap-2">
@@ -48,7 +48,7 @@ export default function Loading() {
 
 				<div
 					className="border rounded-lg p-4 md:p-6 animate-pulse"
-					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal)' }}
+					style={{ backgroundColor: 'var(--color-bg-white)', borderColor: 'var(--color-line-normal-normal)' }}
 				>
 					<div className="h-6 w-24 rounded mb-4" style={{ backgroundColor: 'var(--color-fill-alternative)' }}></div>
 					<div className="space-y-2">
