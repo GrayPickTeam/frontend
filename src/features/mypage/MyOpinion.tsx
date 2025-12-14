@@ -64,7 +64,7 @@ const MyOpinion = () => {
 									</span>
 								</div>
 							</Link>
-							{index !== items.length - 1 && <div className="self-end h-px bg-line-normal w-[calc(100%-56px)]" />}
+							{index !== items.length - 1 && <div className="self-end h-px bg-line-normal-normal w-[calc(100%-56px)]" />}
 						</Fragment>
 					))}
 				</div>

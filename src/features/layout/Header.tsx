@@ -36,7 +36,7 @@ const Header = async () => {
 								height={32}
 								draggable={false}
 								sizes="100vw"
-								className="rounded-full w-8 h-8 object-cover object-center border-1 border-line-normal"
+								className="rounded-full w-8 h-8 object-cover object-center border-1 border-line-normal-normal"
 							/>
 						</Link>
 					) : (

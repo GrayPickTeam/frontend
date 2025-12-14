@@ -22,7 +22,7 @@ function DetailClientFeatures({ id, nickname, profileImg, billDetail, billReacti
 		<>
 			<DetailBottomActionBar {...billDetail} opinionRef={opinionRef} commentRef={commentRef} />
 			<DetailOpinion ref={opinionRef} id={id} profileImg={profileImg} billReactions={billReactions} />
-			<div className="border border-line-neutral w-full" />
+			<div className="border border-line-normal-neutral w-full" />
 			<DetailCommentList ref={commentRef} billId={id} nickname={nickname || ''} />
 		</>
 	);

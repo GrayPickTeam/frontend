@@ -36,7 +36,7 @@ const ProcessItem = ({ status, currentStatus, info }: { status: BillStatus; curr
 				{/* 이놈 */}
 				<div
 					className={`flex items-center justify-center z-10 w-5 h-5 rounded-full typo-caption1 font-bold text-white ${
-						stepStatus === '대기' ? 'bg-line-normal' : 'bg-primary-main-normal'
+						stepStatus === '대기' ? 'bg-line-solid-normal' : 'bg-primary-main-normal'
 					}`}
 				>
 					{stepStatus === '통과' ? <CheckIcon width={14} height={14} strokeWidth={3} /> : itemStep}
@@ -57,7 +57,7 @@ const ProcessItem = ({ status, currentStatus, info }: { status: BillStatus; curr
 			</div>
 			{status !== '공포' && (
 				<div
-					className={`absolute top-2.5 left-[9px] h-[40px] w-0.5 ${stepStatus === '통과' ? 'bg-primary-main-normal' : 'bg-line-normal'} desktop:top-[9px] desktop:left-1/2
+					className={`absolute top-2.5 left-[9px] h-[40px] w-0.5 ${stepStatus === '통과' ? 'bg-primary-main-normal' : 'bg-line-normal-normal'} desktop:top-[9px] desktop:left-1/2
 			desktop:h-0.5 desktop:w-full`}
 				/>
 			)}

@@ -60,7 +60,7 @@ const AddComment = ({ id }: { id: number | string }) => {
 					value={comment}
 					onChange={(e) => setComment(e.target.value)}
 					placeholder="이 법안에 대한 의견을 공유해주세요."
-					className={`w-full h-12 px-4 py-3 rounded-[12px] typo-body1-normal font-regular text-label-normal placeholder:text-label-assistive border border-line-normal focus:outline-none focus:border-black disabled:bg-interaction-disable resize-none`}
+					className={`w-full h-12 px-4 py-3 rounded-[12px] typo-body1-normal font-regular text-label-normal placeholder:text-label-assistive border border-line-normal-normal focus:outline-none focus:border-black disabled:bg-interaction-disable resize-none`}
 					style={{
 						scrollbarWidth: 'none',
 						msOverflowStyle: 'none',

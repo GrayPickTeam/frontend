@@ -77,7 +77,7 @@ const Comment = ({
 				alt="프로필 이미지"
 				width={48}
 				height={48}
-				className="w-[32px] h-[32px] desktop:w-[48px] desktop:h-[48px] rounded-full object-cover object-center border-1 border-line-normal"
+				className="w-[32px] h-[32px] desktop:w-[48px] desktop:h-[48px] rounded-full object-cover object-center border-1 border-line-normal-normal"
 				draggable={false}
 				sizes="100vw"
 				priority
@@ -96,7 +96,7 @@ const Comment = ({
 						value={editedContent}
 						onChange={(e) => setEditedContent(e.target.value)}
 						placeholder="이 법안에 대한 의견을 공유해주세요."
-						className={`w-full h-35 px-4 py-3 rounded-[12px] typo-body1-reading font-regular text-label-normal placeholder:text-label-assistive border border-line-normal focus:outline-none focus:border-black disabled:bg-interaction-disable resize-none`}
+						className={`w-full h-35 px-4 py-3 rounded-[12px] typo-body1-reading font-regular text-label-normal placeholder:text-label-assistive border border-line-normal-normal focus:outline-none focus:border-black disabled:bg-interaction-disable resize-none`}
 						style={{
 							scrollbarWidth: 'none',
 							msOverflowStyle: 'none',

@@ -29,7 +29,7 @@ const DetailTitle = ({
 					<BookmarkBtn id={id} isScrapped={scrapped} />
 				</div>
 			</header>
-			<div className="border border-line-neutral w-full" />
+			<div className="border border-line-normal-neutral w-full" />
 		</div>
 	);
 };

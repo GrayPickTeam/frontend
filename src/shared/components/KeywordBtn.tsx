@@ -15,7 +15,7 @@ const KeywordBtn = ({ keyword, isSelected, onClick }: KeywordBtnProps) => {
 		<button
 			onClick={onClick}
 			type="button"
-			className={`px-4 py-[7px] border rounded-[8px] cursor-pointer typo-label2 font-bold ${isSelected ? 'border-primary-main-normal bg-primary-main-normal text-white' : ' border-line-neutral text-black'}`}
+			className={`px-4 py-[7px] border rounded-[8px] cursor-pointer typo-label2 font-bold ${isSelected ? 'border-primary-main-normal bg-primary-main-normal text-white' : ' border-line-normal-neutral text-black'}`}
 		>
 			{keyword}
 		</button>

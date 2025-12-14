@@ -48,7 +48,7 @@ const MyComment = () => {
 							<span className="typo-body1-normal font-bold">{comment.title}</span>
 						</Link>
 					</div>
-					{index !== flatComments.length - 1 && <div className="h-px bg-line-normal w-full" />}
+					{index !== flatComments.length - 1 && <div className="h-px bg-line-normal-normal w-full" />}
 				</Fragment>
 			))}
 

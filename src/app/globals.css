@@ -7,7 +7,7 @@
 	/* pretandard 숫자 넓이 고정 */
 	font-variant-numeric: tabular-nums;
 
-	/* 색상  - 아토믹 컬러 */
+	/* 색상 - 아토믹 컬러 */
 	--color-common-100: #ffffff;
 	--color-common-0: #010101;
 
@@ -143,49 +143,10 @@
 	--font-weight-medium: 500;
 	--font-weight-bold: 700;
 
-	/* 색상  - 시맨틱 컬러 */
+	/* 색상 - 시맨틱 컬러 */
 	--color-*: initial;
-	--color-primary-main-normal: var(--color-violet-50);
-	--color-primary-main-strong: var(--color-violet-45);
-	--color-primary-main-heavy: var(--color-violet-40);
-	--color-primary-sub-normal: var(--color-emerald-50);
-	--color-primary-sub-strong: var(--color-emerald-45);
-	--color-primary-sub-heavy: var(--color-emerald-40);
-
-	--color-label-normal: var(--color-neutral-10);
-	--color-label-strong: var(--color-common-0);
-	--color-label-neutral: #434447;
-	--color-label-alternative: #858588;
-	--color-label-assistive: #c7c8c9;
-	--color-label-disable: #dfdfe0;
-
-	--color-bg-white: var(--color-common-100);
-	--color-bg-gray: var(--color-neutral-99);
-
-	--color-bg-normal-normal: var(--color-common-100);
-	--color-bg-normal-alternative: var(--color-neutral-99);
-	--color-bg-elevated-normal: var(--color-common-100);
-	--color-bg-elevated-alternative: var(--color-neutral-99);
-
-	--color-interaction-inactive: var(--color-neutral-70);
-	--color-interaction-disable: var(--color-neutral-98);
-
-	--color-line-normal: #e0e0e2;
-	--color-line-neutral: #e8e8ea;
-	--color-line-alternative: #f4f4f5;
-
-	--color-fill-normal: #f4f4f5;
-	--color-fill-strong: #e8e8ea;
-	--color-fill-alternative: #f8f8f8;
-
-	--color-status-positive: var(--color-green-50);
-	--color-status-cautionary: var(--color-orange-50);
-	--color-status-destructive: var(--color-red-50);
-
-	--color-static-white: var(--color-common-100);
-	--color-static-black: var(--color-common-0);
-	--color-white: var(--color-common-100);
 	--color-black: var(--color-common-0);
+	--color-white: var(--color-common-100);
 
 	--color-accent-bg-blue: var(--color-blue-50);
 	--color-accent-bg-emerald: var(--color-emerald-50);
@@ -203,12 +164,57 @@
 	--color-accent-fg-violet: var(--color-violet-40);
 	--color-accent-fg-pink: var(--color-pink-40);
 
-	--color-material-dimmer: #868687;
+	--color-bg-elevated-alternative: var(--color-neutral-99);
+	--color-bg-elevated-normal: var(--color-common-100);
 
+	--color-bg-normal-alternative: var(--color-neutral-99);
+	--color-bg-normal-normal: var(--color-common-100);
+
+	--color-fill-alternative: #70737c0d;
+	--color-fill-normal: #70737c14;
+	--color-fill-strong: #70737c29;
+
+	--color-interaction-disable: var(--color-neutral-98);
+	--color-interaction-inactive: var(--color-neutral-70);
+
+	--color-inverse-bg: var(--color-neutral-15);
+	--color-inverse-label: var(--color-neutral-99);
 	--color-inverse-primary-main: var(--color-violet-60);
 	--color-inverse-primary-sub: var(--color-emerald-60);
-	--color-inverse-primary-background: #1b1c1e;
-	--color-inverse-primary-label: #f7f7f8;
+
+	--color-label-alternative: #37383c9c;
+	--color-label-assistive: #37383c47;
+	--color-label-disable: #37383c29;
+	--color-label-neutral: #292a2de0;
+	--color-label-normal: var(--color-neutral-10);
+	--color-label-strong: var(--color-common-0);
+
+	--color-line-normal-alternative: #70737c14;
+	--color-line-normal-neutral: #70737c29;
+	--color-line-normal-normal: #70737c38;
+	--color-line-normal-string: #70737c85;
+
+	--color-line-solid-alternative: var(--color-neutral-98);
+	--color-line-solid-neutral: var(--color-neutral-97);
+	--color-line-solid-normal: var(--color-neutral-96);
+	--color-line-solid-strong: var(--color-neutral-80);
+
+	--color-material-dimmer: #17171985;
+
+	--color-primary-main-normal: var(--color-violet-50);
+	--color-primary-main-strong: var(--color-violet-45);
+	--color-primary-main-heavy: var(--color-violet-40);
+
+	--color-primary-sub-normal: var(--color-emerald-50);
+	--color-primary-sub-strong: var(--color-emerald-45);
+	--color-primary-sub-heavy: var(--color-emerald-40);
+
+	--color-static-black: var(--color-common-0);
+	--color-static-white: var(--color-common-100);
+
+	--color-status-cautionary: var(--color-orange-50);
+	--color-status-negative: var(--color-red-50);
+	--color-status-positive: var(--color-green-50);
 
 	/* 그림자 */
 	--shadow-normal: 0px 0px 1px 0px #00000014, 0px 0px 1px 0px #00000014, 0px 1px 2px 0px #0000001f;

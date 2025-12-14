@@ -7,7 +7,7 @@ const MyOpinionSkeleton = () => {
 			{Array.from({ length: 6 }).map((_, idx) => (
 				<Fragment key={idx}>
 					<OpinionSlice />
-					{idx !== 5 && <div className="self-end h-px bg-line-normal w-[calc(100%-56px)]" />}
+					{idx !== 5 && <div className="self-end h-px bg-line-normal-normal w-[calc(100%-56px)]" />}
 				</Fragment>
 			))}
 		</div>
